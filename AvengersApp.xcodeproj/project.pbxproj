@@ -1,0 +1,452 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F73674BF2453356A006235E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73674BE2453356A006235E0 /* AppDelegate.swift */; };
+		F73674C12453356A006235E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73674C02453356A006235E0 /* SceneDelegate.swift */; };
+		F73674C32453356A006235E0 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73674C22453356A006235E0 /* HeroesViewController.swift */; };
+		F73674C92453356A006235E0 /* AvengersApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F73674C72453356A006235E0 /* AvengersApp.xcdatamodeld */; };
+		F73674CB2453356C006235E0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F73674CA2453356C006235E0 /* Assets.xcassets */; };
+		F73674CE2453356C006235E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F73674CC2453356C006235E0 /* LaunchScreen.storyboard */; };
+		F73674DA24533DBC006235E0 /* BattlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73674D924533DBC006235E0 /* BattlesViewController.swift */; };
+		F73674DC24533DC9006235E0 /* VillainsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73674DB24533DC9006235E0 /* VillainsViewController.swift */; };
+		F73674DE24533DF5006235E0 /* HeroesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F73674DD24533DF5006235E0 /* HeroesViewController.xib */; };
+		F7AD9D21245463C8006AFAF9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD9D20245463C8006AFAF9 /* Database.swift */; };
+		F7AD9D23245463D7006AFAF9 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD9D22245463D7006AFAF9 /* DataProvider.swift */; };
+		F7AD9D262454663A006AFAF9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F7AD9D252454663A006AFAF9 /* .gitignore */; };
+		F7D5DAC224533FAD0050BBCE /* BattlesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D5DAC124533FAD0050BBCE /* BattlesViewController.xib */; };
+		F7D5DAC424533FE50050BBCE /* VillainsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D5DAC324533FE50050BBCE /* VillainsViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		F73674BB2453356A006235E0 /* AvengersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvengersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F73674BE2453356A006235E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		F73674C02453356A006235E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		F73674C22453356A006235E0 /* HeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
+		F73674C82453356A006235E0 /* AvengersApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AvengersApp.xcdatamodel; sourceTree = "<group>"; };
+		F73674CA2453356C006235E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F73674CD2453356C006235E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F73674CF2453356C006235E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F73674D924533DBC006235E0 /* BattlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlesViewController.swift; sourceTree = "<group>"; };
+		F73674DB24533DC9006235E0 /* VillainsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VillainsViewController.swift; sourceTree = "<group>"; };
+		F73674DD24533DF5006235E0 /* HeroesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesViewController.xib; sourceTree = "<group>"; };
+		F7AD9D20245463C8006AFAF9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		F7AD9D22245463D7006AFAF9 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		F7AD9D252454663A006AFAF9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F7D5DAC124533FAD0050BBCE /* BattlesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattlesViewController.xib; sourceTree = "<group>"; };
+		F7D5DAC324533FE50050BBCE /* VillainsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VillainsViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F73674B82453356A006235E0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F73674B22453356A006235E0 = {
+			isa = PBXGroup;
+			children = (
+				F7AD9D252454663A006AFAF9 /* .gitignore */,
+				F73674BD2453356A006235E0 /* AvengersApp */,
+				F73674BC2453356A006235E0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F73674BC2453356A006235E0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F73674BB2453356A006235E0 /* AvengersApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F73674BD2453356A006235E0 /* AvengersApp */ = {
+			isa = PBXGroup;
+			children = (
+				F7AD9D1B245462A0006AFAF9 /* App */,
+				F7AD9D1C245462DB006AFAF9 /* Resources */,
+				F7AD9D1D2454632B006AFAF9 /* Data */,
+				F7AD9D24245463EA006AFAF9 /* UI */,
+			);
+			path = AvengersApp;
+			sourceTree = "<group>";
+		};
+		F73674D624533CE8006235E0 /* Heroes */ = {
+			isa = PBXGroup;
+			children = (
+				F73674C22453356A006235E0 /* HeroesViewController.swift */,
+				F73674DD24533DF5006235E0 /* HeroesViewController.xib */,
+			);
+			path = Heroes;
+			sourceTree = "<group>";
+		};
+		F73674D724533D9A006235E0 /* Battles */ = {
+			isa = PBXGroup;
+			children = (
+				F73674D924533DBC006235E0 /* BattlesViewController.swift */,
+				F7D5DAC124533FAD0050BBCE /* BattlesViewController.xib */,
+			);
+			path = Battles;
+			sourceTree = "<group>";
+		};
+		F73674D824533DA2006235E0 /* Villains */ = {
+			isa = PBXGroup;
+			children = (
+				F73674DB24533DC9006235E0 /* VillainsViewController.swift */,
+				F7D5DAC324533FE50050BBCE /* VillainsViewController.xib */,
+			);
+			path = Villains;
+			sourceTree = "<group>";
+		};
+		F7AD9D1B245462A0006AFAF9 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F73674BE2453356A006235E0 /* AppDelegate.swift */,
+				F73674C02453356A006235E0 /* SceneDelegate.swift */,
+				F73674CF2453356C006235E0 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		F7AD9D1C245462DB006AFAF9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F73674CA2453356C006235E0 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F7AD9D1D2454632B006AFAF9 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				F7AD9D22245463D7006AFAF9 /* DataProvider.swift */,
+				F7AD9D1E2454639C006AFAF9 /* Local */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		F7AD9D1E2454639C006AFAF9 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				F7AD9D1F245463B7006AFAF9 /* Models */,
+				F7AD9D20245463C8006AFAF9 /* Database.swift */,
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		F7AD9D1F245463B7006AFAF9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F73674C72453356A006235E0 /* AvengersApp.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F7AD9D24245463EA006AFAF9 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F73674CC2453356C006235E0 /* LaunchScreen.storyboard */,
+				F73674D624533CE8006235E0 /* Heroes */,
+				F73674D724533D9A006235E0 /* Battles */,
+				F73674D824533DA2006235E0 /* Villains */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F73674BA2453356A006235E0 /* AvengersApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F73674D22453356C006235E0 /* Build configuration list for PBXNativeTarget "AvengersApp" */;
+			buildPhases = (
+				F73674B72453356A006235E0 /* Sources */,
+				F73674B82453356A006235E0 /* Frameworks */,
+				F73674B92453356A006235E0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AvengersApp;
+			productName = AvengersApp;
+			productReference = F73674BB2453356A006235E0 /* AvengersApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F73674B32453356A006235E0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "Sonia Sieiro";
+				TargetAttributes = {
+					F73674BA2453356A006235E0 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = F73674B62453356A006235E0 /* Build configuration list for PBXProject "AvengersApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F73674B22453356A006235E0;
+			productRefGroup = F73674BC2453356A006235E0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F73674BA2453356A006235E0 /* AvengersApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F73674B92453356A006235E0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7D5DAC224533FAD0050BBCE /* BattlesViewController.xib in Resources */,
+				F73674DE24533DF5006235E0 /* HeroesViewController.xib in Resources */,
+				F73674CE2453356C006235E0 /* LaunchScreen.storyboard in Resources */,
+				F7D5DAC424533FE50050BBCE /* VillainsViewController.xib in Resources */,
+				F7AD9D262454663A006AFAF9 /* .gitignore in Resources */,
+				F73674CB2453356C006235E0 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F73674B72453356A006235E0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F73674C92453356A006235E0 /* AvengersApp.xcdatamodeld in Sources */,
+				F73674C32453356A006235E0 /* HeroesViewController.swift in Sources */,
+				F7AD9D23245463D7006AFAF9 /* DataProvider.swift in Sources */,
+				F73674DC24533DC9006235E0 /* VillainsViewController.swift in Sources */,
+				F73674DA24533DBC006235E0 /* BattlesViewController.swift in Sources */,
+				F73674BF2453356A006235E0 /* AppDelegate.swift in Sources */,
+				F7AD9D21245463C8006AFAF9 /* Database.swift in Sources */,
+				F73674C12453356A006235E0 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		F73674CC2453356C006235E0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F73674CD2453356C006235E0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F73674D02453356C006235E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F73674D12453356C006235E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F73674D32453356C006235E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N236SRU8TW;
+				INFOPLIST_FILE = AvengersApp/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Sonia.AvengersApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F73674D42453356C006235E0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = N236SRU8TW;
+				INFOPLIST_FILE = AvengersApp/App/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = Sonia.AvengersApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F73674B62453356A006235E0 /* Build configuration list for PBXProject "AvengersApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F73674D02453356C006235E0 /* Debug */,
+				F73674D12453356C006235E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F73674D22453356C006235E0 /* Build configuration list for PBXNativeTarget "AvengersApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F73674D32453356C006235E0 /* Debug */,
+				F73674D42453356C006235E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F73674C72453356A006235E0 /* AvengersApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F73674C82453356A006235E0 /* AvengersApp.xcdatamodel */,
+			);
+			currentVersion = F73674C82453356A006235E0 /* AvengersApp.xcdatamodel */;
+			path = AvengersApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = F73674B32453356A006235E0 /* Project object */;
+}
