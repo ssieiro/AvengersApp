@@ -26,11 +26,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navVillainsVC = UINavigationController.init(rootViewController: villainsVC)
         
         navHeroesVC.navigationBar.barTintColor = UIColor.init(red: 131/255.0, green: 166/255.0, blue: 233/255.0, alpha: 1.0)
-        navHeroesVC.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navHeroesVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 26.0), .foregroundColor: UIColor.white]
+        
         navBattlesVC.navigationBar.barTintColor = UIColor.init(red: 131/255.0, green: 166/255.0, blue: 233/255.0, alpha: 1.0)
-        navBattlesVC.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navBattlesVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 26.0), .foregroundColor: UIColor.white]
         navVillainsVC.navigationBar.barTintColor = UIColor.init(red: 131/255.0, green: 166/255.0, blue: 233/255.0, alpha: 1.0)
-        navVillainsVC.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navVillainsVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 26.0), .foregroundColor: UIColor.white]
 
         
         heroesVC.tabBarItem  = UITabBarItem.init(title: "Heroes", image: UIImage.init(named: "ic_tab_heroes"), tag: 0)

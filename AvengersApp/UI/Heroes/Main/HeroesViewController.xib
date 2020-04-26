@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroesViewController" customModule="AvengersApp" customModuleProvider="target">
             <connections>
-                <outlet property="heroes" destination="qwx-ga-dlo" id="o6o-fv-g0u"/>
+                <outlet property="heroesTableView" destination="7DH-HO-GG5" id="3Pd-k3-Wzi"/>
                 <outlet property="view" destination="iN0-l3-epB" id="PB2-ga-wAM"/>
             </connections>
         </placeholder>
@@ -18,17 +18,20 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Heroes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwx-ga-dlo">
-                    <rect key="frame" x="186" y="438" width="55" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7DH-HO-GG5">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="7DH-HO-GG5" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="NR5-YX-Fp9"/>
+                <constraint firstItem="7DH-HO-GG5" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Sy6-aH-KtR"/>
+                <constraint firstItem="7DH-HO-GG5" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="bEd-OI-gVz"/>
+                <constraint firstItem="7DH-HO-GG5" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="rpg-cL-y9N"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="139" y="153"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
         </view>
     </objects>
 </document>
