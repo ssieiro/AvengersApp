@@ -7,3 +7,70 @@
 //
 
 import Foundation
+
+class DataProvider {
+    private var database: Database? = nil
+    private let entityHeroe = "Heroe"
+    private let entityVillain = "Villain"
+    private let entityBattle = "Battle"
+    init() {
+        database = Database()
+    }
+    
+    deinit {
+        database = nil
+    }
+    
+    func createHeroe() -> Heroe? {
+        return database?.createDataHeroe() as? Heroe
+    }
+    
+    func createVillain() -> Villain? {
+        return database?.createDataVillain() as? Villain
+    }
+    
+    func createBattle() -> Battle? {
+        return database?.createDataBattle() as? Battle
+    }
+    
+    func loadAllHeroes() -> [Heroe] {
+        guard let data = database?.fecthAllData(entityHeroe) as? [Heroe] else {
+            return []
+        }
+        
+        return data
+    }
+    
+    func loadAllVillains() -> [Villain] {
+        guard let data = database?.fecthAllData(entityVillain) as? [Villain] else {
+            return []
+        }
+        
+        return data
+    }
+    
+    func loadAllBattles() -> [Battle] {
+        guard let data = database?.fecthAllData(entityBattle) as? [Battle] else {
+            return []
+        }
+        
+        return data
+    }
+    
+    func loadHeroeBattlesBy (fighter: String) -> [Battle] {
+       return database?.fetchDataBy(fighter: fighter, type: entityHeroe) as? [Battle] ?? []
+    }
+    
+    func loadVillainBattlesBy (fighter: String) -> [Battle] {
+        return database?.fetchDataBy(fighter: fighter, type: entityVillain) as? [Battle] ?? []
+    }
+    
+    func saveChanges() {
+        database?.persistAll()
+    }
+    
+    func saveHeroe (_ heroe: Heroe) {
+        database?.persistHeroe(heroe)
+    }
+        
+}

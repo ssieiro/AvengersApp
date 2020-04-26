@@ -1,4 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Battle" representedClassName="Battle" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="winner" optional="YES" attributeType="String"/>
+        <relationship name="fighter1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Heroe" inverseName="battles" inverseEntity="Heroe"/>
+        <relationship name="figther2" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Villain" inverseName="battles" inverseEntity="Villain"/>
+    </entity>
+    <entity name="Heroe" representedClassName="Heroe" syncable="YES" codeGenerationType="class">
+        <attribute name="heroeBio" optional="YES" attributeType="String"/>
+        <attribute name="heroeImage" optional="YES" attributeType="String"/>
+        <attribute name="heroeName" optional="YES" attributeType="String"/>
+        <attribute name="heroePower" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="battles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Battle" inverseName="fighter1" inverseEntity="Battle"/>
+    </entity>
+    <entity name="Villain" representedClassName="Villain" syncable="YES" codeGenerationType="class">
+        <attribute name="villainBio" optional="YES" attributeType="String"/>
+        <attribute name="villainImage" optional="YES" attributeType="String"/>
+        <attribute name="villainName" optional="YES" attributeType="String"/>
+        <attribute name="villainPower" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="battles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Battle" inverseName="figther2" inverseEntity="Battle"/>
+    </entity>
+    <elements>
+        <element name="Battle" positionX="-36" positionY="9" width="128" height="103"/>
+        <element name="Heroe" positionX="-63" positionY="-18" width="128" height="118"/>
+        <element name="Villain" positionX="-54" positionY="-9" width="128" height="118"/>
+    </elements>
 </model>
