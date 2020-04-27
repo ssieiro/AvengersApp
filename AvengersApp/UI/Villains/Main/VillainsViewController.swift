@@ -65,7 +65,10 @@ class VillainsViewController: UIViewController {
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    // cuando seleccionemos la tabla para ir al detalle
+            let villain = villains[indexPath.row]
+            let villainsDetailVC = VillainsDetailViewController.init(withVillain: villain)
+            villainsDetailVC.delegate = self
+            self.navigationController?.pushViewController(villainsDetailVC, animated: true)
         }
         
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,7 +79,6 @@ class VillainsViewController: UIViewController {
             if let cell = tableView.dequeueReusableCell(withIdentifier: "VillainsTableViewCell", for: indexPath) as? VillainsTableViewCell {
                 let vi = villains [indexPath.row]
                 cell.setVillain(vi)
-                cell.delegate = self
                 return cell
             }
     fatalError("Could not create the Episode cell")
@@ -85,8 +87,9 @@ class VillainsViewController: UIViewController {
         
     }
 
-    extension VillainsViewController: VillainCellDelegate {
-        func didPowerChanged(_ villain: Villain?) {
+    extension VillainsViewController: VillainsViewControllerDelegate {
+        func didPowerChanged() {
+            print("llama al delegado")
             updateAllData()
         }
         

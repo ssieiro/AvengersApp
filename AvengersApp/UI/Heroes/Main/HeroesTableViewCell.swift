@@ -8,31 +8,36 @@
 
 import UIKit
 
-protocol HeroeCellDelegate: AnyObject {
-    func didPowerChanged(_ heroe: Heroe?)
-}
-
 class HeroesTableViewCell: UITableViewCell {
     
     private var heroe: Heroe?
-    weak var delegate: HeroeCellDelegate?
     
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
+    
     override func awakeFromNib() {
         heroImage.layer.cornerRadius = 15
         heroImage.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         heroImage.layer.borderWidth = 1.0
     }
     
+    override func prepareForReuse() {
+        heroe = nil
+       }
+    
     func setHeroe (_ heroe: Heroe) {
         self.heroe = heroe
         heroImage.image = UIImage.init(named: heroe.heroeImage ?? "")
         nameLabel.text = heroe.heroeName ?? ""
+        self.setPowerImage()
+    }
+    
+    func setPowerImage () {
         let powerImage: String
         
-        let power = heroe.heroePower
+        
+        let power = heroe?.heroePower
         switch power {
         case 0:
             powerImage = "ic_stars_0"

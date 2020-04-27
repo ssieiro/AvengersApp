@@ -8,23 +8,25 @@
 
 import UIKit
 
-protocol VillainCellDelegate: AnyObject {
-    func didPowerChanged(_ villain: Villain?)
-}
 
 class VillainsTableViewCell: UITableViewCell {
     
     private var villain: Villain?
-    weak var delegate: VillainCellDelegate?
     
     @IBOutlet weak var villainImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
+    
+    
     override func awakeFromNib() {
         villainImage.layer.cornerRadius = 15
         villainImage.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         villainImage.layer.borderWidth = 1.0
     }
+    
+    override func prepareForReuse() {
+        villain = nil
+       }
     
     func setVillain (_ villain: Villain) {
         self.villain = villain

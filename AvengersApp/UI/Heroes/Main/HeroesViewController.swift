@@ -18,7 +18,7 @@ class HeroesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        self.setData() // solo la primera vez
+//        self.setData() // solo la primera vez
         self.updateAllData()
         
 //        guard let capitanAmerica = dataProvider.createHeroe() else {return}
@@ -79,7 +79,10 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-// cuando seleccionemos la tabla para ir al detalle
+        let heroe = heroes[indexPath.row]
+        let heroesDetailVC = HeroesDetailViewController.init(withHeroe: heroe)
+        heroesDetailVC.delegate = self
+        self.navigationController?.pushViewController(heroesDetailVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,7 +93,7 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HeroesTableViewCell", for: indexPath) as? HeroesTableViewCell {
             let he = heroes [indexPath.row]
             cell.setHeroe(he)
-            cell.delegate = self
+//            cell.delegate = self
             return cell
         }
 fatalError("Could not create the Episode cell")
@@ -99,10 +102,10 @@ fatalError("Could not create the Episode cell")
     
 }
 
-extension HeroesViewController: HeroeCellDelegate {
-    func didPowerChanged(_ heroe: Heroe?) {
+extension HeroesViewController: HeroesViewControllerDelegate {
+    func didPowerChanged() {
+        print("llama al delegado")
         updateAllData()
     }
-    
     
 }
