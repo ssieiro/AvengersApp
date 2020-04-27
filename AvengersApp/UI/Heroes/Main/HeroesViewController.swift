@@ -20,13 +20,10 @@ class HeroesViewController: UIViewController {
         self.setupUI()
 //        self.setData() // solo la primera vez
         self.updateAllData()
-        
-//        guard let capitanAmerica = dataProvider.createHeroe() else {return}
-//        capitanAmerica.heroeName = "Capitán América"
-//        let heroes = dataProvider.loadAllHeroes()
-//        dataProvider.saveChanges()
-//        print ("\(String(describing: heroes[0]))")
-//        print ("\(String(describing: heroes[0].heroeName))")
+//        let dataProvider = DataProvider()
+//        let prueba = dataProvider.loadHeroeBy(name: "Capitana Marvel")
+//        print("\(String(describing: prueba[0].heroeName))")
+//        print("\(String(describing: prueba))")
         
 }
     
@@ -46,9 +43,7 @@ class HeroesViewController: UIViewController {
     func setData () {
         let dataSet = DataSet()
         dataSet.saveVillains()
-//        print ("\(String(describing: villains))")
         dataSet.saveHeroes()
-//        print ("\(String(describing: heroes))")
     }
     
     private func loadData () {
@@ -93,19 +88,15 @@ extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "HeroesTableViewCell", for: indexPath) as? HeroesTableViewCell {
             let he = heroes [indexPath.row]
             cell.setHeroe(he)
-//            cell.delegate = self
             return cell
         }
-fatalError("Could not create the Episode cell")
+fatalError("Could not create the Heroe cell")
     }
-    
     
 }
 
 extension HeroesViewController: HeroesViewControllerDelegate {
     func didPowerChanged() {
-        print("llama al delegado")
         updateAllData()
     }
-    
 }

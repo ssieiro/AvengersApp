@@ -65,6 +65,14 @@ class DataProvider {
         return database?.fetchDataBy(fighter: fighter, type: entityVillain) as? [Battle] ?? []
     }
     
+    func loadHeroeBy (name: String) -> [Heroe] {
+        return database?.fetchDataBy(name: name, type: entityHeroe) as? [Heroe] ?? []
+    }
+    
+    func loadVillainBy (name: String) -> [Villain] {
+        return database?.fetchDataBy(name: name, type: entityVillain) as? [Villain] ?? []
+    }
+    
     func saveChanges() {
         database?.persistAll()
     }

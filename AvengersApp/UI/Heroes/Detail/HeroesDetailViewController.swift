@@ -16,6 +16,7 @@ class HeroesDetailViewController: UIViewController {
     
     weak var delegate: HeroesViewControllerDelegate?
     var heroe: Heroe?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
@@ -30,15 +31,7 @@ class HeroesDetailViewController: UIViewController {
         self.heroe = heroe
         self.title = heroe.heroeName
     }
-    
-    func setupUI() {
-        detailHeroeImage.image = UIImage.init(named: heroe?.heroeImage ?? "")
-        self.setPowerImage()
-        biographyContentLabel.text = heroe?.heroeBio ?? ""
-        detailHeroeImage.layer.cornerRadius = 15
-        
-    }
-    
+
     
 //    MARK: IBOutlet
 
@@ -49,6 +42,26 @@ class HeroesDetailViewController: UIViewController {
     @IBOutlet weak var biographyLabel: UILabel!
     @IBOutlet weak var biographyContentLabel: UILabel!
     
+//    MARK: IBActions
+    
+    @IBAction func editPowerButton(_ sender: Any) {
+//        let heroe = self.heroe
+        guard let he = heroe else {return}
+        let heroesPowerVC = HeroesPowerViewController.init(withHeroe: he)
+        heroesPowerVC.delegate = self
+        heroesPowerVC.modalPresentationStyle = .overCurrentContext
+        self.present(heroesPowerVC, animated: true, completion: nil)
+    }
+    
+//    MARK: ConfigureView
+    
+    func setupUI() {
+        detailHeroeImage.image = UIImage.init(named: heroe?.heroeImage ?? "")
+        self.setPowerImage()
+        biographyContentLabel.text = heroe?.heroeBio ?? ""
+        detailHeroeImage.layer.cornerRadius = 15
+        
+    }
     
     func setPowerImage () {
         let powerImage: String
@@ -76,4 +89,13 @@ class HeroesDetailViewController: UIViewController {
         detailHeroePower.image = UIImage.init(named: powerImage)
     }
 
+}
+
+extension HeroesDetailViewController: HeroesPowerDelegate {
+    func didPowerChanged(forHeroe heroe: Heroe) {
+        self.heroe = heroe
+        self.setupUI()
+        delegate?.didPowerChanged()
+    }
+    
 }

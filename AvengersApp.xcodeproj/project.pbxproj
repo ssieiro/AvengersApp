@@ -11,6 +11,8 @@
 		F728B44D24573F1B00CB72E8 /* HeroesDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F728B44C24573F1B00CB72E8 /* HeroesDetailViewController.xib */; };
 		F728B45124574B8F00CB72E8 /* VillainsDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F728B44F24574B8F00CB72E8 /* VillainsDetailViewController.xib */; };
 		F728B45224574B8F00CB72E8 /* VillainsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728B45024574B8F00CB72E8 /* VillainsDetailViewController.swift */; };
+		F728B45524574FB100CB72E8 /* HeroesPowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F728B45424574FB100CB72E8 /* HeroesPowerViewController.swift */; };
+		F728B45724574FBB00CB72E8 /* HeroesPowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F728B45624574FBB00CB72E8 /* HeroesPowerViewController.xib */; };
 		F73674BF2453356A006235E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73674BE2453356A006235E0 /* AppDelegate.swift */; };
 		F73674C12453356A006235E0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73674C02453356A006235E0 /* SceneDelegate.swift */; };
 		F73674C32453356A006235E0 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F73674C22453356A006235E0 /* HeroesViewController.swift */; };
@@ -37,6 +39,8 @@
 		F728B44C24573F1B00CB72E8 /* HeroesDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesDetailViewController.xib; sourceTree = "<group>"; };
 		F728B44F24574B8F00CB72E8 /* VillainsDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VillainsDetailViewController.xib; sourceTree = "<group>"; };
 		F728B45024574B8F00CB72E8 /* VillainsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillainsDetailViewController.swift; sourceTree = "<group>"; };
+		F728B45424574FB100CB72E8 /* HeroesPowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesPowerViewController.swift; sourceTree = "<group>"; };
+		F728B45624574FBB00CB72E8 /* HeroesPowerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesPowerViewController.xib; sourceTree = "<group>"; };
 		F73674BB2453356A006235E0 /* AvengersApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvengersApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F73674BE2453356A006235E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F73674C02453356A006235E0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 			children = (
 				F728B44A24573F0900CB72E8 /* HeroesDetailViewController.swift */,
 				F728B44C24573F1B00CB72E8 /* HeroesDetailViewController.xib */,
+				F728B45324574F4400CB72E8 /* ModifyPower */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -87,6 +92,15 @@
 				F728B44F24574B8F00CB72E8 /* VillainsDetailViewController.xib */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		F728B45324574F4400CB72E8 /* ModifyPower */ = {
+			isa = PBXGroup;
+			children = (
+				F728B45424574FB100CB72E8 /* HeroesPowerViewController.swift */,
+				F728B45624574FBB00CB72E8 /* HeroesPowerViewController.xib */,
+			);
+			path = ModifyPower;
 			sourceTree = "<group>";
 		};
 		F73674B22453356A006235E0 = {
@@ -138,8 +152,8 @@
 		F73674D824533DA2006235E0 /* Villains */ = {
 			isa = PBXGroup;
 			children = (
-				F728B44E24574B8F00CB72E8 /* Detail */,
 				F7735EFD2455EF9200AB6AD4 /* Main */,
+				F728B44E24574B8F00CB72E8 /* Detail */,
 			);
 			path = Villains;
 			sourceTree = "<group>";
@@ -289,6 +303,7 @@
 				F728B45124574B8F00CB72E8 /* VillainsDetailViewController.xib in Resources */,
 				F7AD9D262454663A006AFAF9 /* .gitignore in Resources */,
 				F73674CB2453356C006235E0 /* Assets.xcassets in Resources */,
+				F728B45724574FBB00CB72E8 /* HeroesPowerViewController.xib in Resources */,
 				F7735F032455F07E00AB6AD4 /* VillainsTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -300,6 +315,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F728B45524574FB100CB72E8 /* HeroesPowerViewController.swift in Sources */,
 				F73674C92453356A006235E0 /* AvengersApp.xcdatamodeld in Sources */,
 				F7FD80F92455DB3700043FA9 /* HeroesTableViewCell.swift in Sources */,
 				F728B44B24573F0900CB72E8 /* HeroesDetailViewController.swift in Sources */,

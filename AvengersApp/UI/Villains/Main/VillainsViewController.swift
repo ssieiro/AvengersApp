@@ -81,7 +81,7 @@ class VillainsViewController: UIViewController {
                 cell.setVillain(vi)
                 return cell
             }
-    fatalError("Could not create the Episode cell")
+    fatalError("Could not create the Villain cell")
         }
         
         
