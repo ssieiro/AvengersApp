@@ -18,12 +18,25 @@ class HeroesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-//        self.setData() // solo la primera vez
+//        self.setData()
         self.updateAllData()
+        
+//        let dataProvider = DataProvider()
+//        let prueba = dataProvider.loadAllBattles()
+//        print ("\(String(describing: prueba[0].fighter1))")
+//        print ("\(String(describing: prueba[1].fighter1))")
+//        print ("\(String(describing: prueba[2].fighter1))")
+//        print ("\(String(describing: prueba[0].fighter1))")
+//        print ("\(String(describing: prueba[0].fighter2))")
+//        print ("\(String(describing: prueba[0].winner))")
+        
 //        let dataProvider = DataProvider()
 //        let prueba = dataProvider.loadHeroeBy(name: "Capitana Marvel")
 //        print("\(String(describing: prueba[0].heroeName))")
 //        print("\(String(describing: prueba))")
+        
+
+        
         
 }
     
@@ -44,6 +57,7 @@ class HeroesViewController: UIViewController {
         let dataSet = DataSet()
         dataSet.saveVillains()
         dataSet.saveHeroes()
+        dataSet.saveExampleBattles()
     }
     
     private func loadData () {

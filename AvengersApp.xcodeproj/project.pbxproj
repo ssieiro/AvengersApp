@@ -27,6 +27,10 @@
 		F7AD9D21245463C8006AFAF9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD9D20245463C8006AFAF9 /* Database.swift */; };
 		F7AD9D23245463D7006AFAF9 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD9D22245463D7006AFAF9 /* DataProvider.swift */; };
 		F7AD9D262454663A006AFAF9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F7AD9D252454663A006AFAF9 /* .gitignore */; };
+		F7C8656624589421007D61B3 /* VillainsPowerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C8656424589421007D61B3 /* VillainsPowerViewController.xib */; };
+		F7C8656724589421007D61B3 /* VillainsPowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C8656524589421007D61B3 /* VillainsPowerViewController.swift */; };
+		F7C8656C24589D67007D61B3 /* HeroesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7C8656B24589D67007D61B3 /* HeroesCollectionViewCell.swift */; };
+		F7C8656E24589D84007D61B3 /* HeroesCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7C8656D24589D84007D61B3 /* HeroesCollectionViewCell.xib */; };
 		F7D5DAC224533FAD0050BBCE /* BattlesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D5DAC124533FAD0050BBCE /* BattlesViewController.xib */; };
 		F7D5DAC424533FE50050BBCE /* VillainsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7D5DAC324533FE50050BBCE /* VillainsViewController.xib */; };
 		F7FD80F62455A2ED00043FA9 /* DataSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7FD80F52455A2ED00043FA9 /* DataSet.swift */; };
@@ -57,6 +61,10 @@
 		F7AD9D20245463C8006AFAF9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		F7AD9D22245463D7006AFAF9 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		F7AD9D252454663A006AFAF9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		F7C8656424589421007D61B3 /* VillainsPowerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VillainsPowerViewController.xib; sourceTree = "<group>"; };
+		F7C8656524589421007D61B3 /* VillainsPowerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillainsPowerViewController.swift; sourceTree = "<group>"; };
+		F7C8656B24589D67007D61B3 /* HeroesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesCollectionViewCell.swift; sourceTree = "<group>"; };
+		F7C8656D24589D84007D61B3 /* HeroesCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesCollectionViewCell.xib; sourceTree = "<group>"; };
 		F7D5DAC124533FAD0050BBCE /* BattlesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BattlesViewController.xib; sourceTree = "<group>"; };
 		F7D5DAC324533FE50050BBCE /* VillainsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VillainsViewController.xib; sourceTree = "<group>"; };
 		F7FD80F52455A2ED00043FA9 /* DataSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSet.swift; sourceTree = "<group>"; };
@@ -80,6 +88,7 @@
 			children = (
 				F728B44A24573F0900CB72E8 /* HeroesDetailViewController.swift */,
 				F728B44C24573F1B00CB72E8 /* HeroesDetailViewController.xib */,
+				F7C8656824589D28007D61B3 /* CollectionView */,
 				F728B45324574F4400CB72E8 /* ModifyPower */,
 			);
 			path = Detail;
@@ -90,6 +99,7 @@
 			children = (
 				F728B45024574B8F00CB72E8 /* VillainsDetailViewController.swift */,
 				F728B44F24574B8F00CB72E8 /* VillainsDetailViewController.xib */,
+				F7C8656324589421007D61B3 /* ModifyPower */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -225,6 +235,24 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		F7C8656324589421007D61B3 /* ModifyPower */ = {
+			isa = PBXGroup;
+			children = (
+				F7C8656524589421007D61B3 /* VillainsPowerViewController.swift */,
+				F7C8656424589421007D61B3 /* VillainsPowerViewController.xib */,
+			);
+			path = ModifyPower;
+			sourceTree = "<group>";
+		};
+		F7C8656824589D28007D61B3 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				F7C8656B24589D67007D61B3 /* HeroesCollectionViewCell.swift */,
+				F7C8656D24589D84007D61B3 /* HeroesCollectionViewCell.xib */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
 		F7FD80F72455DB1A00043FA9 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,7 +332,9 @@
 				F7AD9D262454663A006AFAF9 /* .gitignore in Resources */,
 				F73674CB2453356C006235E0 /* Assets.xcassets in Resources */,
 				F728B45724574FBB00CB72E8 /* HeroesPowerViewController.xib in Resources */,
+				F7C8656624589421007D61B3 /* VillainsPowerViewController.xib in Resources */,
 				F7735F032455F07E00AB6AD4 /* VillainsTableViewCell.xib in Resources */,
+				F7C8656E24589D84007D61B3 /* HeroesCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7C8656C24589D67007D61B3 /* HeroesCollectionViewCell.swift in Sources */,
 				F728B45524574FB100CB72E8 /* HeroesPowerViewController.swift in Sources */,
 				F73674C92453356A006235E0 /* AvengersApp.xcdatamodeld in Sources */,
 				F7FD80F92455DB3700043FA9 /* HeroesTableViewCell.swift in Sources */,
@@ -323,6 +354,7 @@
 				F7AD9D23245463D7006AFAF9 /* DataProvider.swift in Sources */,
 				F728B45224574B8F00CB72E8 /* VillainsDetailViewController.swift in Sources */,
 				F7FD80F62455A2ED00043FA9 /* DataSet.swift in Sources */,
+				F7C8656724589421007D61B3 /* VillainsPowerViewController.swift in Sources */,
 				F7735F042455F07E00AB6AD4 /* VillainsTableViewCell.swift in Sources */,
 				F73674DC24533DC9006235E0 /* VillainsViewController.swift in Sources */,
 				F73674DA24533DBC006235E0 /* BattlesViewController.swift in Sources */,

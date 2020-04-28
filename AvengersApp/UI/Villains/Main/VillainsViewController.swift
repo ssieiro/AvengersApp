@@ -89,7 +89,6 @@ class VillainsViewController: UIViewController {
 
     extension VillainsViewController: VillainsViewControllerDelegate {
         func didPowerChanged() {
-            print("llama al delegado")
             updateAllData()
         }
         

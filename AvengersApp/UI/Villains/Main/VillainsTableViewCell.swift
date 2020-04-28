@@ -32,9 +32,13 @@ class VillainsTableViewCell: UITableViewCell {
         self.villain = villain
         villainImage.image = UIImage.init(named: villain.villainImage ?? "")
         nameLabel.text = villain.villainName ?? ""
-        let powerImage: String
+        self.setPowerImage()
+    }
+    
+    func setPowerImage () {
+       let powerImage: String
         
-        let power = villain.villainPower
+        let power = villain?.villainPower
         switch power {
         case 0:
             powerImage = "ic_stars_0"

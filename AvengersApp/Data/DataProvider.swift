@@ -67,6 +67,7 @@ class DataProvider {
     
     func loadHeroeBy (name: String) -> [Heroe] {
         return database?.fetchDataBy(name: name, type: entityHeroe) as? [Heroe] ?? []
+
     }
     
     func loadVillainBy (name: String) -> [Villain] {

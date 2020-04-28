@@ -13,7 +13,7 @@ class DataSet {
     private let dataProvider = DataProvider()
     
     func saveHeroes () {
-        guard let capitanAmerica = dataProvider.createHeroe() else {return}
+        let capitanAmerica = dataProvider.createHeroe()
         let blackPanther = dataProvider.createHeroe()
         let laViudaNegra = dataProvider.createHeroe()
         let drStrange = dataProvider.createHeroe()
@@ -24,11 +24,10 @@ class DataSet {
         let spiderman = dataProvider.createHeroe()
         let thor = dataProvider.createHeroe()
         
-//        capitanAmerica.setValue("Capitán América", forKey: "heroeName")
-        capitanAmerica.heroeName = "Capitán América"
-        capitanAmerica.heroeBio = "Descripción"
-        capitanAmerica.heroeImage = "img_heroe_america_captain"
-        capitanAmerica.heroePower = 4
+        capitanAmerica?.heroeName = "Capitán América"
+        capitanAmerica?.heroeBio = "Descripción"
+        capitanAmerica?.heroeImage = "img_heroe_america_captain"
+        capitanAmerica?.heroePower = 4
 
         blackPanther?.heroeName = "Black Panther"
         blackPanther?.heroeBio = "Descripción"
@@ -143,6 +142,29 @@ class DataSet {
         
         dataProvider.saveChanges()
                                             
+    }
+    
+    func saveExampleBattles () {
+        let heroes = dataProvider.loadAllHeroes()
+        let villains = dataProvider.loadAllVillains()
+        let battle1 = dataProvider.createBattle()
+        let battle2 = dataProvider.createBattle()
+        let battle3 = dataProvider.createBattle()
+        
+        battle1?.setValue(heroes[0], forKey: "fighter1")
+        battle1?.setValue(villains[0], forKey: "fighter2")
+        battle1?.setValue(heroes[0].heroeName, forKey: "winner")
+        
+        battle2?.setValue(heroes[0], forKey: "fighter1")
+        battle2?.setValue(villains[0], forKey: "fighter2")
+        battle2?.setValue(villains[0].villainName, forKey: "winner")
+        
+        battle3?.setValue(heroes[0], forKey: "fighter1")
+        battle3?.setValue(villains[0], forKey: "fighter2")
+        battle3?.setValue(villains[0].villainName, forKey: "winner")
+        
+        dataProvider.saveChanges()
+
     }
     
 }

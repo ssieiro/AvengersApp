@@ -16,6 +16,7 @@ class HeroesDetailViewController: UIViewController {
     
     weak var delegate: HeroesViewControllerDelegate?
     var heroe: Heroe?
+    var battles: [Battle] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,8 @@ class HeroesDetailViewController: UIViewController {
         self.heroe = heroe
         self.title = heroe.heroeName
     }
+    
+    
 
     
 //    MARK: IBOutlet
@@ -45,7 +48,6 @@ class HeroesDetailViewController: UIViewController {
 //    MARK: IBActions
     
     @IBAction func editPowerButton(_ sender: Any) {
-//        let heroe = self.heroe
         guard let he = heroe else {return}
         let heroesPowerVC = HeroesPowerViewController.init(withHeroe: he)
         heroesPowerVC.delegate = self
@@ -56,11 +58,37 @@ class HeroesDetailViewController: UIViewController {
 //    MARK: ConfigureView
     
     func setupUI() {
+        self.loadData()
+        self.showData()
         detailHeroeImage.image = UIImage.init(named: heroe?.heroeImage ?? "")
         self.setPowerImage()
         biographyContentLabel.text = heroe?.heroeBio ?? ""
         detailHeroeImage.layer.cornerRadius = 15
         
+//        CollectionView
+        let nib = UINib.init(nibName: "HeroesCollectionViewCell", bundle: nil)
+        battlesCollectionView.register(nib, forCellWithReuseIdentifier: "HeroesCollectionViewCell")
+            
+        battlesCollectionView.delegate = self
+        battlesCollectionView.dataSource = self
+    }
+    
+    
+    private func loadData () {
+        let dataProvider = DataProvider()
+        self.battles = dataProvider.loadAllBattles()
+        print ("\(String(describing: battles[0].fighter1))")
+        print ("\(String(describing: battles[1].fighter1))")
+        print ("\(String(describing: battles[2].fighter1))")
+    }
+    
+    private func showData() {
+        battlesCollectionView.reloadData()
+    }
+    
+    private func updateAllData() {
+        self.loadData()
+        self.showData()
     }
     
     func setPowerImage () {
@@ -97,5 +125,33 @@ extension HeroesDetailViewController: HeroesPowerDelegate {
         self.setupUI()
         delegate?.didPowerChanged()
     }
+    
+}
+
+extension HeroesDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView,
+           layout collectionViewLayout: UICollectionViewLayout,
+           sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = CGSize(width: 158, height: 50)
+        return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        battles.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroesCollectionViewCell", for: indexPath) as? HeroesCollectionViewCell {
+            let battle = battles[indexPath.row]
+            if let heroe = heroe {
+                cell.setBattle(battle: battle, heroe: heroe)
+                return cell
+            }
+        }
+        fatalError("Could not create the Battle cell")
+ 
+        
+    }
+
     
 }

@@ -118,18 +118,17 @@ class Database {
     func fetchDataBy (name: String, type: String) -> [NSManagedObject]? {
             if type == "Heroe" {
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityHeroe)
-                let heroePredicate = NSPredicate(format: "\(entityHeroeName) = \(name)")
+                let heroePredicate = NSPredicate(format: "heroeName = \(name)")
                 fetchRequest.predicate = heroePredicate
                 return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
             } else {
                 let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityVillain)
-                let villainPredicate = NSPredicate(format: "\(entityVillainName) = \(name)")
+                let villainPredicate = NSPredicate(format: "villainName = \(name)")
                 fetchRequest.predicate = villainPredicate
                 return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
             }
             
         }
-    
 
 }
 
