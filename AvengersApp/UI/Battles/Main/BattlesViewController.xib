@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BattlesViewController" customModule="AvengersApp" customModuleProvider="target">
+            <connections>
+                <outlet property="battlesTableView" destination="dgP-6S-V04" id="EQH-nx-Qc6"/>
+                <outlet property="createBattleButton" destination="Ojw-3z-9dw" id="BYV-9x-EHt"/>
+                <outlet property="view" destination="iN0-l3-epB" id="8jU-QU-NVJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dgP-6S-V04">
+                    <rect key="frame" x="0.0" y="44" width="414" height="717"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ojw-3z-9dw">
+                    <rect key="frame" x="132" y="795" width="150" height="44"/>
+                    <color key="backgroundColor" red="0.023529411760000001" green="0.38431372549999998" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="26"/>
+                    <state key="normal" title="Create">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="createBattle:" destination="-1" eventType="touchUpInside" id="6X0-WE-ghC"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="dgP-6S-V04" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="6KZ-AC-Adq"/>
+                <constraint firstItem="dgP-6S-V04" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="7p4-MQ-zd4"/>
+                <constraint firstItem="dgP-6S-V04" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" constant="-101" id="8gL-Qr-oqI"/>
+                <constraint firstItem="Ojw-3z-9dw" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="132" id="bUg-Za-oVo"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Ojw-3z-9dw" secondAttribute="trailing" constant="132" id="gdg-7Z-CzX"/>
+                <constraint firstItem="dgP-6S-V04" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="mtS-LU-KnU"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Ojw-3z-9dw" secondAttribute="bottom" constant="23" id="wWj-PM-iXx"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="137.68115942028987" y="152.67857142857142"/>
+        </view>
+        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="TrL-zd-NRZ">
+            <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <state key="normal" title="Button"/>
+            <point key="canvasLocation" x="136" y="510"/>
+        </button>
+    </objects>
+</document>

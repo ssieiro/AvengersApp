@@ -24,7 +24,7 @@ class HeroesCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         self.layer.cornerRadius = 10.0
         self.layer.shadowRadius = 3.0
-        self.layer.shadowOpacity = 1.0
+        self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize(width: 4, height: 4)
         self.layer.masksToBounds = false
     }
