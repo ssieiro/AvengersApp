@@ -77,9 +77,6 @@ class HeroesDetailViewController: UIViewController {
     private func loadData () {
         let dataProvider = DataProvider()
         self.battles = dataProvider.loadAllBattles()
-        print ("\(String(describing: battles[0].fighter1))")
-        print ("\(String(describing: battles[1].fighter1))")
-        print ("\(String(describing: battles[2].fighter1))")
     }
     
     private func showData() {
@@ -128,11 +125,15 @@ extension HeroesDetailViewController: HeroesPowerDelegate {
     
 }
 
-extension HeroesDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension HeroesDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0);
+    }
     func collectionView(_ collectionView: UICollectionView,
            layout collectionViewLayout: UICollectionViewLayout,
            sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = CGSize(width: 158, height: 50)
+        let size = CGSize(width: 100, height: 50)
         return size
     }
     

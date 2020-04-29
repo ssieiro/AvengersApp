@@ -81,13 +81,13 @@
                     <size key="shadowOffset" width="0.0" height="0.0"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="UVD-a7-CSb">
-                    <rect key="frame" x="20" y="382" width="377" height="50"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <rect key="frame" x="28" y="382" width="360" height="66"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="MGU-dy-Gxx"/>
+                        <constraint firstAttribute="height" constant="66" id="MGU-dy-Gxx"/>
                     </constraints>
-                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ZsU-xE-4yU">
-                        <size key="itemSize" width="158" height="50"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="20" id="JDD-p3-zPg">
+                        <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -99,7 +99,7 @@
                 <constraint firstItem="pXv-do-HJb" firstAttribute="top" secondItem="hAJ-0W-WcB" secondAttribute="bottom" constant="53" id="2aP-Wj-Bjg"/>
                 <constraint firstItem="2zG-CQ-Trv" firstAttribute="top" secondItem="rVT-ZZ-FTo" secondAttribute="bottom" constant="16" id="9ob-Ar-GLf"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="2zG-CQ-Trv" secondAttribute="trailing" constant="17" id="I1B-PB-o98"/>
-                <constraint firstItem="rVT-ZZ-FTo" firstAttribute="top" secondItem="UVD-a7-CSb" secondAttribute="bottom" constant="24" id="IO1-8a-fmM"/>
+                <constraint firstItem="rVT-ZZ-FTo" firstAttribute="top" secondItem="UVD-a7-CSb" secondAttribute="bottom" constant="8" id="IO1-8a-fmM"/>
                 <constraint firstItem="hAJ-0W-WcB" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="MFS-Hf-POR"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="hAJ-0W-WcB" secondAttribute="trailing" constant="22" id="Xha-1H-xaR"/>
                 <constraint firstItem="slT-Nq-YcX" firstAttribute="top" secondItem="hAJ-0W-WcB" secondAttribute="bottom" constant="56" id="Xyc-pC-V0H"/>
@@ -110,9 +110,9 @@
                 <constraint firstItem="UVD-a7-CSb" firstAttribute="top" secondItem="pXv-do-HJb" secondAttribute="bottom" constant="17" id="iMJ-Sf-jvn"/>
                 <constraint firstItem="rVT-ZZ-FTo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="neh-jW-cdN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="slT-Nq-YcX" secondAttribute="trailing" constant="22" id="sOa-xw-E9S"/>
-                <constraint firstItem="UVD-a7-CSb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="uxc-WF-cpd"/>
+                <constraint firstItem="UVD-a7-CSb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="28" id="uxc-WF-cpd"/>
                 <constraint firstItem="hAJ-0W-WcB" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="v1d-kB-vo0"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UVD-a7-CSb" secondAttribute="trailing" constant="17" id="vC5-mx-20c"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UVD-a7-CSb" secondAttribute="trailing" constant="26" id="vC5-mx-20c"/>
                 <constraint firstItem="2zG-CQ-Trv" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="xrU-FU-Mg6"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

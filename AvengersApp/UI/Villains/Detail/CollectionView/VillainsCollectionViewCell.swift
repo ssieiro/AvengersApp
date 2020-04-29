@@ -8,15 +8,15 @@
 
 import UIKit
  
-class HeroesCollectionViewCell: UICollectionViewCell {
+class VillainsCollectionViewCell: UICollectionViewCell {
     
     private var battle: Battle?
-    private var heroe: Heroe?
+    private var villain: Villain?
     
     @IBOutlet weak var battleLabel: UILabel!
     
     override func prepareForReuse() {
-        heroe = nil
+        villain = nil
         battle = nil
        }
     
@@ -29,8 +29,8 @@ class HeroesCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = false
     }
     
-    func setBattle(battle: Battle, heroe: Heroe) {
-        if heroe.heroeName == battle.winner {
+    func setBattle(battle: Battle, villain: Villain) {
+        if villain.villainName == battle.winner {
             self.backgroundColor = UIColor.init(red: 12/255.0, green: 156/255.0, blue: 43/255.0, alpha: 1.0)
             self.layer.shadowColor = UIColor.init(red: 12/255.0, green: 156/255.0, blue: 43/255.0, alpha: 1.0).cgColor
         } else {

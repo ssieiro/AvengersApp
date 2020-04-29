@@ -16,6 +16,7 @@ class VillainsDetailViewController: UIViewController {
     
     weak var delegate: VillainsViewControllerDelegate?
     var villain: Villain?
+    var battles: [Battle] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,11 +57,33 @@ class VillainsDetailViewController: UIViewController {
 //    MARK: ConfigureView
     
     func setupUI() {
+        self.loadData()
+        self.showData()
         detailVillainImage.image = UIImage.init(named: villain?.villainImage ?? "")
         self.setPowerImage()
         biographyContentLabel.text = villain?.villainBio ?? ""
         detailVillainImage.layer.cornerRadius = 15
+//        CollectionView
+        let nib = UINib.init(nibName: "VillainsCollectionViewCell", bundle: nil)
+        battlesCollectionView.register(nib, forCellWithReuseIdentifier: "VillainsCollectionViewCell")
+            
+        battlesCollectionView.delegate = self
+        battlesCollectionView.dataSource = self
         
+    }
+    
+    private func loadData () {
+        let dataProvider = DataProvider()
+        self.battles = dataProvider.loadAllBattles()
+    }
+    
+    private func showData() {
+        battlesCollectionView.reloadData()
+    }
+    
+    private func updateAllData() {
+        self.loadData()
+        self.showData()
     }
     
     func setPowerImage () {
@@ -99,3 +122,36 @@ extension VillainsDetailViewController: VillainsPowerDelegate {
     }
     
 }
+
+extension VillainsDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0);
+    }
+    func collectionView(_ collectionView: UICollectionView,
+           layout collectionViewLayout: UICollectionViewLayout,
+           sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let size = CGSize(width: 100, height: 50)
+        return size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        battles.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "VillainsCollectionViewCell", for: indexPath) as? VillainsCollectionViewCell {
+            let battle = battles[indexPath.row]
+            if let villain = villain {
+                cell.setBattle(battle: battle, villain: villain)
+                return cell
+            }
+        }
+        fatalError("Could not create the Battle cell")
+ 
+        
+    }
+
+    
+}
+
