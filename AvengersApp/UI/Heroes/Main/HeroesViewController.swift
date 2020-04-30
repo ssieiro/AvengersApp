@@ -54,9 +54,12 @@ class HeroesViewController: UIViewController {
     
     
     func setData () {
-        let dataSet = DataSet()
-        dataSet.saveVillains()
-        dataSet.saveHeroes()
+        if dataProvider.isFirstTime() {
+            let dataSet = DataSet()
+            dataSet.saveVillains()
+            dataSet.saveHeroes()
+            dataProvider.saveFirstTime()
+        } else {return}
     }
     
     private func loadData () {

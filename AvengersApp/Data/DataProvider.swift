@@ -10,15 +10,26 @@ import Foundation
 
 class DataProvider {
     private var database: Database? = nil
+    private var mUserPreferences: UserDefaultsPreferences? = nil
     private let entityHeroe = "Heroe"
     private let entityVillain = "Villain"
     private let entityBattle = "Battle"
     init() {
         database = Database()
+        mUserPreferences = UserDefaultsPreferences()
     }
     
     deinit {
         database = nil
+    }
+
+    func isFirstTime() -> Bool {
+        guard let answer = mUserPreferences?.isfirstTime() else {return false}
+        return answer
+    }
+    
+    func saveFirstTime() {
+        mUserPreferences?.setFirstTime()
     }
     
     func createHeroe() -> Heroe? {

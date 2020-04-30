@@ -32,6 +32,7 @@
 		F7735F042455F07E00AB6AD4 /* VillainsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7735F022455F07E00AB6AD4 /* VillainsTableViewCell.swift */; };
 		F7A626AB245B3ED9006C045E /* ChooseFighterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A626AA245B3ED9006C045E /* ChooseFighterViewController.swift */; };
 		F7A626AD245B3EF2006C045E /* ChooseFighterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7A626AC245B3EF2006C045E /* ChooseFighterViewController.xib */; };
+		F7A626AF245B5CDF006C045E /* UserDefaultsPreferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A626AE245B5CDF006C045E /* UserDefaultsPreferences.swift */; };
 		F7AD9D21245463C8006AFAF9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD9D20245463C8006AFAF9 /* Database.swift */; };
 		F7AD9D23245463D7006AFAF9 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD9D22245463D7006AFAF9 /* DataProvider.swift */; };
 		F7AD9D262454663A006AFAF9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F7AD9D252454663A006AFAF9 /* .gitignore */; };
@@ -74,6 +75,7 @@
 		F7735F022455F07E00AB6AD4 /* VillainsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillainsTableViewCell.swift; sourceTree = "<group>"; };
 		F7A626AA245B3ED9006C045E /* ChooseFighterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFighterViewController.swift; sourceTree = "<group>"; };
 		F7A626AC245B3EF2006C045E /* ChooseFighterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseFighterViewController.xib; sourceTree = "<group>"; };
+		F7A626AE245B5CDF006C045E /* UserDefaultsPreferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsPreferences.swift; sourceTree = "<group>"; };
 		F7AD9D20245463C8006AFAF9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		F7AD9D22245463D7006AFAF9 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		F7AD9D252454663A006AFAF9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				F73674C72453356A006235E0 /* AvengersApp.xcdatamodeld */,
+				F7A626AE245B5CDF006C045E /* UserDefaultsPreferences.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -423,6 +426,7 @@
 				F73674DA24533DBC006235E0 /* BattlesViewController.swift in Sources */,
 				F73674BF2453356A006235E0 /* AppDelegate.swift in Sources */,
 				F7AD9D21245463C8006AFAF9 /* Database.swift in Sources */,
+				F7A626AF245B5CDF006C045E /* UserDefaultsPreferences.swift in Sources */,
 				F73674C12453356A006235E0 /* SceneDelegate.swift in Sources */,
 				F709783F2459F01500EA13A5 /* NewBattleViewController.swift in Sources */,
 			);
