@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChooseFighter" customModule="AvengersApp" customModuleProvider="target">
+            <connections>
+                <outlet property="fightersTableView" destination="mqY-j4-6C3" id="eFo-EO-ltr"/>
+                <outlet property="view" destination="iN0-l3-epB" id="5Ja-eL-F0y"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mqY-j4-6C3">
+                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="mqY-j4-6C3" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4JT-lI-jTN"/>
+                <constraint firstItem="mqY-j4-6C3" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="63s-A3-14W"/>
+                <constraint firstItem="mqY-j4-6C3" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Shi-vr-ltA"/>
+                <constraint firstItem="mqY-j4-6C3" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="bdv-wP-056"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="228.98550724637684" y="147.99107142857142"/>
+        </view>
+    </objects>
+</document>

@@ -16,9 +16,14 @@ class NewBattleViewController: UIViewController {
     
     weak var delegate: BattlesViewControllerDelegate?
     var battles: [Battle] = []
+    let dataProvider = DataProvider()
+    var fighter1: Heroe?
+    var fighter2: Villain?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.calculateID()
+//        self.calculateWinner(fighter1power: 1, fighter2power: 1)
         self.title = "New battle"
         navigationItem.hidesBackButton = true
         self.setupUI()
@@ -30,12 +35,14 @@ class NewBattleViewController: UIViewController {
         
     }
 
+//    HACER QUE CUANDO SELECCIONAS UN VILLANO EL DELEGADO EJECUTE UNA FUNCION QUE SETEE LA IMAGEN DEL HEROE ELEGIDO Y QUE PONGA HIDDEN EL BOTÓN +
+    
 //    MARK: IBOUTLET
     @IBOutlet weak var battleLabel: UILabel!
     @IBOutlet weak var heroeImage: UIImageView!
     @IBOutlet weak var heroeAddButton: UIButton!
     @IBOutlet weak var villainImage: UIImageView!
-    @IBOutlet weak var villainAddButton: UIImageView!
+    @IBOutlet weak var villainAddButton: UIButton!
     @IBOutlet weak var battleIcon: UIImageView!
     @IBOutlet weak var createButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -43,9 +50,41 @@ class NewBattleViewController: UIViewController {
     
 //    MARK: IBACTIONS
     
+    @IBAction func addHeroe(_ sender: Any) {
+        let chooseFighterVC = ChooseFighter.init(withfighter: 1)
+        let navigationController = UINavigationController(rootViewController: chooseFighterVC)
+    
+        navigationController.modalPresentationStyle = .fullScreen
+        chooseFighterVC.delegate = self
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    @IBAction func addVillain(_ sender: Any) {
+        let chooseFighterVC = ChooseFighter.init(withfighter: 2)
+        let navigationController = UINavigationController(rootViewController: chooseFighterVC)
+        navigationController.modalPresentationStyle = .fullScreen
+        chooseFighterVC.delegate = self
+        self.present(navigationController, animated: true, completion: nil)
+    }
+    
     @IBAction func createButton(_ sender: Any) {
-//        let dataProvider = DataProvider()
+        guard let fighter1 = fighter1 else {
+            DispatchQueue.main.async { [weak self] in
+                    self?.showAlert(title: "Error", message: "Please add a Heroe")
+                }
+            return
+        }
+        guard let fighter2 = fighter2 else {
+            DispatchQueue.main.async { [weak self] in
+                    self?.showAlert(title: "Error", message: "Please add a Villain")
+                }
+            return
+        }
         
+        self.createNewBattle(heroe: fighter1, villain: fighter2)
+        delegate?.didBattleAdded()
+        if let navController = self.navigationController {
+            navController.popViewController(animated: true)
+            }
     }
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -53,6 +92,8 @@ class NewBattleViewController: UIViewController {
             navController.popViewController(animated: true)
         }
     }
+    
+    
     
 //    MARK: ConfigureView
     func setupUI() {
@@ -71,8 +112,83 @@ class NewBattleViewController: UIViewController {
         cancelButton.layer.shadowColor = UIColor.darkGray.cgColor
         battleLabel.text = "Battle \(battles.count + 1)"
         
+        heroeImage.alpha = 0.5
+        villainImage.alpha = 0.5
+        
     }
+    
+// MARK: Create Battle methods
+    
+    func calculateID() -> Int16 {
+        battles = dataProvider.loadAllBattles()
+        let battlesID: [Int16] = battles.map({$0.id})
+        guard let maxId = battlesID.max() else {return 1} // si no hay batallas el primer id será 1
+        return maxId + 1
+        
+    }
+    
+    func calculateWinner(fighter1power: Int, fighter2power: Int) -> Int {
+        let random = Int(arc4random_uniform(10) + 1)
+        let fighter1 = random + fighter1power
+        let fighter2 = random + fighter2power
+        
+        if fighter1 == fighter2 {
+            let untie = Int(arc4random_uniform(2))
+            if untie == 0 {return 1} else {return 2}
+        }
+        
+        if fighter1 > fighter2 {return 1} else {return 2}
 
+    }
+    
+    func createNewBattle (heroe: Heroe, villain: Villain) {
+        let fight = calculateWinner(fighter1power: Int(heroe.heroePower), fighter2power: Int(villain.villainPower))
+        
+        var winner = ""
+        
+        if fight == 1 {
+            winner = heroe.heroeName ?? ""
+        }
+        if fight == 2{
+            winner = villain.villainName ?? ""
+        }
+        
+        let newBattle = dataProvider.createBattle()
+        let battleId = calculateID()
+        
+        newBattle?.setValue(heroe, forKey: "fighter1")
+        newBattle?.setValue(villain, forKey: "fighter2")
+        newBattle?.setValue(winner, forKey: "winner")
+        newBattle?.setValue(battleId, forKey: "id")
+        
+        dataProvider.saveChanges()
+    }
+    
+// MARK: Error manage
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alertController, animated: true, completion: nil)
+    }
     
 
+}
+
+extension NewBattleViewController: ChooseFighterViewControllerDelegate {
+    func setHeroe(_ heroe: Heroe) {
+        self.fighter1 = heroe
+        heroeAddButton.isHidden = true
+        heroeImage.alpha = 1.0
+        heroeImage.image = UIImage.init(named: fighter1?.heroeImage ?? "")
+    }
+    
+    func setVillain(_ villain: Villain) {
+        self.fighter2 = villain
+        villainAddButton.isHidden = true
+        villainImage.alpha = 1.0
+        villainImage.image = UIImage.init(named: fighter2?.villainImage ?? "")
+    }
+    
+    
 }

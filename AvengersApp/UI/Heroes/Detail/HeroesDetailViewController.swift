@@ -30,6 +30,8 @@ class HeroesDetailViewController: UIViewController {
     convenience init(withHeroe heroe: Heroe ){
         self.init(nibName: "HeroesDetailViewController", bundle: nil)
         self.heroe = heroe
+        guard let battles = heroe.battles?.allObjects as? [Battle] else {return}
+        self.battles = battles
         self.title = heroe.heroeName
     }
     
@@ -58,7 +60,6 @@ class HeroesDetailViewController: UIViewController {
 //    MARK: ConfigureView
     
     func setupUI() {
-        self.loadData()
         self.showData()
         detailHeroeImage.image = UIImage.init(named: heroe?.heroeImage ?? "")
         self.setPowerImage()
@@ -73,19 +74,10 @@ class HeroesDetailViewController: UIViewController {
         battlesCollectionView.dataSource = self
     }
     
-    
-    private func loadData () {
-        let dataProvider = DataProvider()
-        self.battles = dataProvider.loadAllBattles()
-    }
+
     
     private func showData() {
         battlesCollectionView.reloadData()
-    }
-    
-    private func updateAllData() {
-        self.loadData()
-        self.showData()
     }
     
     func setPowerImage () {
@@ -127,9 +119,9 @@ extension HeroesDetailViewController: HeroesPowerDelegate {
 
 extension HeroesDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0);
-    }
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0);
+//    }
     func collectionView(_ collectionView: UICollectionView,
            layout collectionViewLayout: UICollectionViewLayout,
            sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -138,13 +130,13 @@ extension HeroesDetailViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        battles.count
+        return battles.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HeroesCollectionViewCell", for: indexPath) as? HeroesCollectionViewCell {
             let battle = battles[indexPath.row]
-            if let heroe = heroe {
+            if let heroe = heroe{
                 cell.setBattle(battle: battle, heroe: heroe)
                 return cell
             }

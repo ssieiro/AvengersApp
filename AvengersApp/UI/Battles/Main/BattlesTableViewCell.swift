@@ -11,7 +11,6 @@ import UIKit
 class BattlesTableViewCell: UITableViewCell {
     
     private var battle: Battle?
-
     
     @IBOutlet weak var heroeImage: UIImageView!
     @IBOutlet weak var villainImage: UIImageView!
@@ -32,10 +31,11 @@ class BattlesTableViewCell: UITableViewCell {
         battle = nil
        }
     
-    func setBattle (withBattle battle: Battle) {
+    func setBattle (withBattle battle: Battle, number: Int) {
         self.battle = battle
         heroeImage.image = UIImage.init(named: battle.fighter1?.heroeImage ?? "")
         villainImage.image = UIImage.init(named: battle.fighter2?.villainImage ?? "")
+        battleNumberLabel.text = "Battle \(number + 1)"
         
         if battle.fighter1?.heroeName == battle.winner {
             heroeImage.layer.borderColor = UIColor.init(red: 12/255.0, green: 156/255.0, blue: 43/255.0, alpha: 1.0).cgColor

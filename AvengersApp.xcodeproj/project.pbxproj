@@ -30,6 +30,8 @@
 		F756A0732459E90900CED37A /* VillainsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F756A0712459E90900CED37A /* VillainsCollectionViewCell.swift */; };
 		F7735F032455F07E00AB6AD4 /* VillainsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7735F012455F07E00AB6AD4 /* VillainsTableViewCell.xib */; };
 		F7735F042455F07E00AB6AD4 /* VillainsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7735F022455F07E00AB6AD4 /* VillainsTableViewCell.swift */; };
+		F7A626AB245B3ED9006C045E /* ChooseFighterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A626AA245B3ED9006C045E /* ChooseFighterViewController.swift */; };
+		F7A626AD245B3EF2006C045E /* ChooseFighterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7A626AC245B3EF2006C045E /* ChooseFighterViewController.xib */; };
 		F7AD9D21245463C8006AFAF9 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD9D20245463C8006AFAF9 /* Database.swift */; };
 		F7AD9D23245463D7006AFAF9 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AD9D22245463D7006AFAF9 /* DataProvider.swift */; };
 		F7AD9D262454663A006AFAF9 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = F7AD9D252454663A006AFAF9 /* .gitignore */; };
@@ -70,6 +72,8 @@
 		F756A0712459E90900CED37A /* VillainsCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillainsCollectionViewCell.swift; sourceTree = "<group>"; };
 		F7735F012455F07E00AB6AD4 /* VillainsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VillainsTableViewCell.xib; sourceTree = "<group>"; };
 		F7735F022455F07E00AB6AD4 /* VillainsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VillainsTableViewCell.swift; sourceTree = "<group>"; };
+		F7A626AA245B3ED9006C045E /* ChooseFighterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFighterViewController.swift; sourceTree = "<group>"; };
+		F7A626AC245B3EF2006C045E /* ChooseFighterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChooseFighterViewController.xib; sourceTree = "<group>"; };
 		F7AD9D20245463C8006AFAF9 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		F7AD9D22245463D7006AFAF9 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		F7AD9D252454663A006AFAF9 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 			children = (
 				F709783E2459F01500EA13A5 /* NewBattleViewController.swift */,
 				F7D5DAC124533FAD0050BBCE /* NewBattleViewController.xib */,
+				F7A626A9245B3EB6006C045E /* ChooseFighter */,
 			);
 			path = "New Battle";
 			sourceTree = "<group>";
@@ -219,6 +224,15 @@
 				F7735F012455F07E00AB6AD4 /* VillainsTableViewCell.xib */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		F7A626A9245B3EB6006C045E /* ChooseFighter */ = {
+			isa = PBXGroup;
+			children = (
+				F7A626AA245B3ED9006C045E /* ChooseFighterViewController.swift */,
+				F7A626AC245B3EF2006C045E /* ChooseFighterViewController.xib */,
+			);
+			path = ChooseFighter;
 			sourceTree = "<group>";
 		};
 		F7AD9D1B245462A0006AFAF9 /* App */ = {
@@ -367,6 +381,7 @@
 				F7D5DAC224533FAD0050BBCE /* NewBattleViewController.xib in Resources */,
 				F70978412459F04700EA13A5 /* BattlesViewController.xib in Resources */,
 				F728B44D24573F1B00CB72E8 /* HeroesDetailViewController.xib in Resources */,
+				F7A626AD245B3EF2006C045E /* ChooseFighterViewController.xib in Resources */,
 				F73674DE24533DF5006235E0 /* HeroesViewController.xib in Resources */,
 				F73674CE2453356C006235E0 /* LaunchScreen.storyboard in Resources */,
 				F7FD80FB2455DB4300043FA9 /* HeroesTableViewCell.xib in Resources */,
@@ -401,6 +416,7 @@
 				F7AD9D23245463D7006AFAF9 /* DataProvider.swift in Sources */,
 				F728B45224574B8F00CB72E8 /* VillainsDetailViewController.swift in Sources */,
 				F7FD80F62455A2ED00043FA9 /* DataSet.swift in Sources */,
+				F7A626AB245B3ED9006C045E /* ChooseFighterViewController.swift in Sources */,
 				F7C8656724589421007D61B3 /* VillainsPowerViewController.swift in Sources */,
 				F7735F042455F07E00AB6AD4 /* VillainsTableViewCell.swift in Sources */,
 				F73674DC24533DC9006235E0 /* VillainsViewController.swift in Sources */,

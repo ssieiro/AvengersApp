@@ -90,7 +90,7 @@ extension BattlesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BattlesTableViewCell", for: indexPath) as? BattlesTableViewCell {
             let bt = battles[indexPath.row]
-            cell.setBattle(withBattle: bt)
+            cell.setBattle(withBattle: bt, number: indexPath.row)
             return cell
         }
 fatalError("Could not create the Battle cell")

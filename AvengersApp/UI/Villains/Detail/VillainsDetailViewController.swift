@@ -30,6 +30,8 @@ class VillainsDetailViewController: UIViewController {
     convenience init(withVillain villain: Villain){
         self.init(nibName: "VillainsDetailViewController", bundle: nil)
         self.villain = villain
+        guard let battles = villain.battles?.allObjects as? [Battle] else {return}
+        self.battles = battles
         self.title = villain.villainName
     }
     
@@ -57,7 +59,6 @@ class VillainsDetailViewController: UIViewController {
 //    MARK: ConfigureView
     
     func setupUI() {
-        self.loadData()
         self.showData()
         detailVillainImage.image = UIImage.init(named: villain?.villainImage ?? "")
         self.setPowerImage()
@@ -72,19 +73,11 @@ class VillainsDetailViewController: UIViewController {
         
     }
     
-    private func loadData () {
-        let dataProvider = DataProvider()
-        self.battles = dataProvider.loadAllBattles()
-    }
     
     private func showData() {
         battlesCollectionView.reloadData()
     }
     
-    private func updateAllData() {
-        self.loadData()
-        self.showData()
-    }
     
     func setPowerImage () {
         let powerImage: String
@@ -125,9 +118,6 @@ extension VillainsDetailViewController: VillainsPowerDelegate {
 
 extension VillainsDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0);
-    }
     func collectionView(_ collectionView: UICollectionView,
            layout collectionViewLayout: UICollectionViewLayout,
            sizeForItemAt indexPath: IndexPath) -> CGSize {

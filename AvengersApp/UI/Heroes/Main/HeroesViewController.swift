@@ -18,7 +18,7 @@ class HeroesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-//        self.setData()
+        self.setData()
         self.updateAllData()
         
 //        let dataProvider = DataProvider()
@@ -57,7 +57,6 @@ class HeroesViewController: UIViewController {
         let dataSet = DataSet()
         dataSet.saveVillains()
         dataSet.saveHeroes()
-        dataSet.saveExampleBattles()
     }
     
     private func loadData () {

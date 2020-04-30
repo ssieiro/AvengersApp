@@ -144,27 +144,4 @@ class DataSet {
                                             
     }
     
-    func saveExampleBattles () {
-        let heroes = dataProvider.loadAllHeroes()
-        let villains = dataProvider.loadAllVillains()
-        let battle1 = dataProvider.createBattle()
-        let battle2 = dataProvider.createBattle()
-        let battle3 = dataProvider.createBattle()
-        
-        battle1?.setValue(heroes[0], forKey: "fighter1")
-        battle1?.setValue(villains[0], forKey: "fighter2")
-        battle1?.setValue(heroes[0].heroeName, forKey: "winner")
-        
-        battle2?.setValue(heroes[0], forKey: "fighter1")
-        battle2?.setValue(villains[0], forKey: "fighter2")
-        battle2?.setValue(villains[0].villainName, forKey: "winner")
-        
-        battle3?.setValue(heroes[0], forKey: "fighter1")
-        battle3?.setValue(villains[0], forKey: "fighter2")
-        battle3?.setValue(villains[0].villainName, forKey: "winner")
-        
-        dataProvider.saveChanges()
-
-    }
-    
 }
