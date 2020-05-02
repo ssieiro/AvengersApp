@@ -74,7 +74,6 @@ class DataProvider {
         return data
     }
     
-    
     func loadAllBattlesSortedById() -> [Battle] {
         guard let data = database?.fetchBattlesSortedbyId() as? [Battle] else {
             return []
@@ -82,10 +81,10 @@ class DataProvider {
         return data
     }
     
-
-//    func loadVillainBattlesBy (id: Int) -> [Battle] {
-//        return database?.fetchDataBy(fighter: fighter, type: entityVillain) as? [Battle] ?? []
-//    }
+    func deleteBattleById (id: Int) {
+        database?.deleteBattlebyId(battleId: id)
+        return
+    }
     
 //    save methods
     

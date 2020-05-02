@@ -83,26 +83,30 @@ class Database {
     }
     
     func fetchBattlesSortedbyId() -> [NSManagedObject]?{
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityBattle) 
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityBattle)
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: entityBattleID, ascending: true)]
         return try? context()?.fetch(fetchRequest)
     }
         
+// delete methods
+    
+    func deleteBattlebyId(battleId: Int) {
+        guard let contextMOB = context() else {
+            return
+        }
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityBattle)
+        let battlePredicate = NSPredicate(format: "\(entityBattleID) = %i", battleId)
+        fetchRequest.predicate = battlePredicate
+        let battles = try? contextMOB.fetch(fetchRequest)
+        
+        battles?.forEach{ battle in
+        if let battleValue = battle as? NSManagedObject {
+            contextMOB.delete(battleValue)
+                }
+         }
+        try? contextMOB.save()
 
-//    func fetchDataBy (name: String, type: String) -> [NSManagedObject]? {
-//            if type == entityHeroe {
-//                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityHeroe)
-//                let heroePredicate = NSPredicate(format: "heroeName = \(name)")
-//                fetchRequest.predicate = heroePredicate
-//                return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
-//            } else {
-//                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityVillain)
-//                let villainPredicate = NSPredicate(format: "villainName = \(name)")
-//                fetchRequest.predicate = villainPredicate
-//                return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
-//            }
-//            
-//        }
-
+    }
+    
 }
 

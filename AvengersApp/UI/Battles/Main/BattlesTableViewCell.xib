@@ -45,14 +45,28 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aau-Ub-TkX">
+                        <rect key="frame" x="485" y="6" width="45" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="45" id="qBs-RK-ssy"/>
+                            <constraint firstAttribute="height" constant="40" id="vwJ-zS-i7I"/>
+                        </constraints>
+                        <color key="tintColor" red="0.023529411760000001" green="0.38431372549999998" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <state key="normal" image="trash.fill" catalog="system"/>
+                        <connections>
+                            <action selector="deleteBattle:" destination="bo3-fJ-lYl" eventType="touchUpInside" id="yz7-m0-2rR"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ilG-MV-6ji" firstAttribute="centerY" secondItem="DCt-xl-lXx" secondAttribute="centerY" constant="24" id="1ad-YV-Yye"/>
                     <constraint firstItem="NQk-vd-t0H" firstAttribute="centerX" secondItem="DCt-xl-lXx" secondAttribute="centerX" id="5Ox-SI-1Fz"/>
                     <constraint firstItem="CEC-uH-JzN" firstAttribute="centerY" secondItem="DCt-xl-lXx" secondAttribute="centerY" constant="24" id="BG6-4t-ET8"/>
+                    <constraint firstItem="aau-Ub-TkX" firstAttribute="top" secondItem="DCt-xl-lXx" secondAttribute="top" constant="6" id="Bmc-YY-dI8"/>
                     <constraint firstItem="b0W-XL-mKO" firstAttribute="top" secondItem="DCt-xl-lXx" secondAttribute="top" constant="14" id="DLi-cf-oAn"/>
                     <constraint firstItem="CEC-uH-JzN" firstAttribute="trailing" secondItem="DCt-xl-lXx" secondAttribute="trailingMargin" id="Ref-Ft-0Wb"/>
                     <constraint firstItem="b0W-XL-mKO" firstAttribute="centerX" secondItem="DCt-xl-lXx" secondAttribute="centerX" id="Ymc-jD-PUA"/>
+                    <constraint firstAttribute="trailing" secondItem="aau-Ub-TkX" secondAttribute="trailing" constant="20" id="mXE-Zp-Kac"/>
                     <constraint firstItem="NQk-vd-t0H" firstAttribute="centerY" secondItem="DCt-xl-lXx" secondAttribute="centerY" constant="24.5" id="wcr-jm-6Gh"/>
                     <constraint firstItem="ilG-MV-6ji" firstAttribute="leading" secondItem="DCt-xl-lXx" secondAttribute="leadingMargin" id="zka-gA-9ai"/>
                 </constraints>
@@ -60,6 +74,7 @@
             <connections>
                 <outlet property="battleIcon" destination="NQk-vd-t0H" id="zPW-eI-k9e"/>
                 <outlet property="battleNumberLabel" destination="b0W-XL-mKO" id="niI-4p-1Dj"/>
+                <outlet property="deleteButton" destination="aau-Ub-TkX" id="MeN-Ef-Hxd"/>
                 <outlet property="heroeImage" destination="ilG-MV-6ji" id="j9H-wZ-gmN"/>
                 <outlet property="villainImage" destination="CEC-uH-JzN" id="TY9-rp-5lK"/>
             </connections>
@@ -68,5 +83,6 @@
     </objects>
     <resources>
         <image name="ic_battle_round" width="512" height="512"/>
+        <image name="trash.fill" catalog="system" width="60" height="64"/>
     </resources>
 </document>

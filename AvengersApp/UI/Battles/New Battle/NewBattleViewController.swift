@@ -11,7 +11,7 @@ import UIKit
 //MARK: Delegate protocol
 
 protocol BattlesViewControllerDelegate: AnyObject {
-    func didBattleAdded ()
+    func didBattlesChanged ()
 }
 
 class NewBattleViewController: UIViewController {
@@ -23,13 +23,13 @@ class NewBattleViewController: UIViewController {
     let dataProvider = DataProvider()
     var fighter1: Heroe?
     var fighter2: Villain?
+    var id: Int16?
     
 //    MARK: Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.calculateID()
-//        self.calculateWinner(fighter1power: 1, fighter2power: 1)
+        self.id = calculateID()
         self.title = "New battle"
         navigationItem.hidesBackButton = true
         self.setupUI()
@@ -108,7 +108,7 @@ class NewBattleViewController: UIViewController {
         }
         
         self.createNewBattle(heroe: fighter1, villain: fighter2)
-        delegate?.didBattleAdded()
+        delegate?.didBattlesChanged()
         if let navController = self.navigationController {
             navController.popViewController(animated: true)
             }
@@ -138,7 +138,7 @@ class NewBattleViewController: UIViewController {
         cancelButton.layer.shadowOffset = CGSize(width: 4, height: 4)
         cancelButton.layer.masksToBounds = false
         cancelButton.layer.shadowColor = UIColor.darkGray.cgColor
-        battleLabel.text = "Battle \(battles.count + 1)"
+        battleLabel.text = "Battle \(self.id ?? 0)"
         
         heroeImage.alpha = 0.5
         villainImage.alpha = 0.5
@@ -182,12 +182,11 @@ class NewBattleViewController: UIViewController {
         }
         
         let newBattle = dataProvider.createBattle()
-        let battleId = calculateID()
         
         newBattle?.setValue(heroe, forKey: "fighter1")
         newBattle?.setValue(villain, forKey: "fighter2")
         newBattle?.setValue(winner, forKey: "winner")
-        newBattle?.setValue(battleId, forKey: "id")
+        newBattle?.setValue(self.id, forKey: "id")
         
         dataProvider.saveChanges()
     }

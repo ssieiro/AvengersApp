@@ -87,9 +87,9 @@ extension BattlesViewController: UITableViewDelegate, UITableViewDataSource {
         return 178
     }
     
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        false
-    }
+//    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+//        false
+//    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return battles.count
@@ -99,6 +99,8 @@ extension BattlesViewController: UITableViewDelegate, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BattlesTableViewCell", for: indexPath) as? BattlesTableViewCell {
             let bt = battles[indexPath.row]
             cell.setBattle(withBattle: bt)
+            cell.delegate = self
+            cell.isUserInteractionEnabled = true
             return cell
         }
 fatalError("Could not create the Battle cell")
@@ -109,8 +111,10 @@ fatalError("Could not create the Battle cell")
 //MARK: Delegate methods
 
 extension BattlesViewController: BattlesViewControllerDelegate {
-    func didBattleAdded() {
+    func didBattlesChanged() {
+        print("delegate called")
         self.loadData()
         self.showData()
     }
 }
+

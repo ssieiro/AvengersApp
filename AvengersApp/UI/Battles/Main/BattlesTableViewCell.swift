@@ -8,10 +8,13 @@
 
 import UIKit
 
+
+
 class BattlesTableViewCell: UITableViewCell {
     
 //    MARK: Properties
     
+    weak var delegate: BattlesViewControllerDelegate?
     private var battle: Battle?
     
 //    MARK: Lifecycle methods
@@ -35,6 +38,18 @@ class BattlesTableViewCell: UITableViewCell {
     @IBOutlet weak var villainImage: UIImageView!
     @IBOutlet weak var battleIcon: UIImageView!
     @IBOutlet weak var battleNumberLabel: UILabel!
+    @IBOutlet weak var deleteButton: UIButton!
+    
+// MARK: IBACTION
+    
+    @IBAction func deleteBattle(_ sender: Any) {
+        print("button pressed")
+        let dataProvider = DataProvider()
+        dataProvider.deleteBattleById(id: Int(battle?.id ?? 0))
+        delegate?.didBattlesChanged()
+    }
+    
+
     
 //  MARK: ConfigureView
     
