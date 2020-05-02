@@ -8,15 +8,21 @@
 
 import UIKit
 
+//MARK: Delegate protocol
+
 protocol HeroesViewControllerDelegate: AnyObject {
     func didPowerChanged()
 }
 
 class HeroesDetailViewController: UIViewController {
     
+//    MARK: Properties
+    
     weak var delegate: HeroesViewControllerDelegate?
     var heroe: Heroe?
     var battles: [Battle] = []
+    
+//    MARK: Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,13 +36,11 @@ class HeroesDetailViewController: UIViewController {
     convenience init(withHeroe heroe: Heroe ){
         self.init(nibName: "HeroesDetailViewController", bundle: nil)
         self.heroe = heroe
-        guard let battles = heroe.battles?.allObjects as? [Battle] else {return}
+//        return battles sorted
+        guard let battles = heroe.battles?.allObjects.sorted(by: { ($0 as AnyObject).id < ($1 as AnyObject).id } ) as? [Battle] else {return}
         self.battles = battles
         self.title = heroe.heroeName
     }
-    
-    
-
     
 //    MARK: IBOutlet
 
@@ -67,6 +71,7 @@ class HeroesDetailViewController: UIViewController {
         detailHeroeImage.layer.cornerRadius = 15
         
 //        CollectionView
+        
         let nib = UINib.init(nibName: "HeroesCollectionViewCell", bundle: nil)
         battlesCollectionView.register(nib, forCellWithReuseIdentifier: "HeroesCollectionViewCell")
             
@@ -74,7 +79,6 @@ class HeroesDetailViewController: UIViewController {
         battlesCollectionView.dataSource = self
     }
     
-
     
     private func showData() {
         battlesCollectionView.reloadData()
@@ -108,14 +112,7 @@ class HeroesDetailViewController: UIViewController {
 
 }
 
-extension HeroesDetailViewController: HeroesPowerDelegate {
-    func didPowerChanged(forHeroe heroe: Heroe) {
-        self.heroe = heroe
-        self.setupUI()
-        delegate?.didPowerChanged()
-    }
-    
-}
+// MARK: CollectionView Methods
 
 extension HeroesDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -146,5 +143,16 @@ extension HeroesDetailViewController: UICollectionViewDataSource, UICollectionVi
         
     }
 
+    
+}
+
+//MARK: Delegate methods
+
+extension HeroesDetailViewController: HeroesPowerDelegate {
+    func didPowerChanged(forHeroe heroe: Heroe) {
+        self.heroe = heroe
+        self.setupUI()
+        delegate?.didPowerChanged()
+    }
     
 }

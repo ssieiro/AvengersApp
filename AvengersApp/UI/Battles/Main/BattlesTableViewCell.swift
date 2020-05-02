@@ -10,13 +10,11 @@ import UIKit
 
 class BattlesTableViewCell: UITableViewCell {
     
+//    MARK: Properties
+    
     private var battle: Battle?
     
-    @IBOutlet weak var heroeImage: UIImageView!
-    @IBOutlet weak var villainImage: UIImageView!
-    @IBOutlet weak var battleIcon: UIImageView!
-    @IBOutlet weak var battleNumberLabel: UILabel!
-    
+//    MARK: Lifecycle methods
     
     override func awakeFromNib() {
         heroeImage.layer.cornerRadius = 15
@@ -25,17 +23,26 @@ class BattlesTableViewCell: UITableViewCell {
         villainImage.layer.cornerRadius = 15
         villainImage.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         villainImage.layer.borderWidth = 4.0
-    }
+        }
 
     override func prepareForReuse() {
         battle = nil
-       }
+        }
     
-    func setBattle (withBattle battle: Battle, number: Int) {
+//    MARK: IBOUTLET
+    
+    @IBOutlet weak var heroeImage: UIImageView!
+    @IBOutlet weak var villainImage: UIImageView!
+    @IBOutlet weak var battleIcon: UIImageView!
+    @IBOutlet weak var battleNumberLabel: UILabel!
+    
+//  MARK: ConfigureView
+    
+    func setBattle (withBattle battle: Battle) {
         self.battle = battle
         heroeImage.image = UIImage.init(named: battle.fighter1?.heroeImage ?? "")
         villainImage.image = UIImage.init(named: battle.fighter2?.villainImage ?? "")
-        battleNumberLabel.text = "Battle \(number + 1)"
+        battleNumberLabel.text = "Battle \(battle.id)"
         
         if battle.fighter1?.heroeName == battle.winner {
             heroeImage.layer.borderColor = UIColor.init(red: 12/255.0, green: 156/255.0, blue: 43/255.0, alpha: 1.0).cgColor
@@ -47,9 +54,5 @@ class BattlesTableViewCell: UITableViewCell {
         } else {
             villainImage.layer.borderColor = UIColor.init(red: 155/255.0, green: 28/255.0, blue: 42/255.0, alpha: 1.0).cgColor
         }
-        
-        
     }
-    
-
 }

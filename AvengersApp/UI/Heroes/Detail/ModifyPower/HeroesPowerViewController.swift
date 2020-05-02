@@ -8,17 +8,24 @@
 
 import UIKit
 
+//MARK: Delegate protocol
+
 protocol HeroesPowerDelegate: AnyObject {
     func didPowerChanged(forHeroe heroe: Heroe)
 }
 
 class HeroesPowerViewController: UIViewController {
     
+//    MARK: Properties
+    
     weak var delegate: HeroesPowerDelegate?
     var heroe: Heroe?
+    
+//    MARK: Lifecycle methods
+    
     override func viewDidLoad () {
         super.viewDidLoad()
-        configureView()
+        setupUI()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -31,6 +38,8 @@ class HeroesPowerViewController: UIViewController {
         self.heroe = heroe
     }
     
+//    MARK: IBOutlet
+    
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var powerLabel: UILabel!
     @IBOutlet weak var powerSlider: UISlider!
@@ -38,24 +47,8 @@ class HeroesPowerViewController: UIViewController {
     @IBOutlet weak var confirmButton: UIButton!
     @IBOutlet weak var powerNumberLabel: UILabel!
     
-    
-    func configureView() {
-        myView.layer.cornerRadius = 8.0
-        cancelButton.layer.cornerRadius = 8.0
-        confirmButton.layer.cornerRadius = 8.0
-        guard let power = heroe?.heroePower else {return}
-        powerSlider.value = Float(Int(power))
-        powerNumberLabel.text = String(power)
-        configureViewEffects()
-    }
-    
-    func configureViewEffects () {
-        let blurEffect = UIBlurEffect(style: .extraLight)
-        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
-        blurredEffectView.frame = view.bounds
-        view.addSubview(blurredEffectView)
-        view.sendSubviewToBack(blurredEffectView)
-    }
+//    MARK: IBActions
+
     @IBAction func cancelSetPower(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
@@ -72,6 +65,26 @@ class HeroesPowerViewController: UIViewController {
     @IBAction func setPower(_ sender: UISlider) {
         let rate = Int(sender.value)
         powerNumberLabel.text = "\(rate)"
+    }
+    
+//    MARK: ConfigureView
+    
+    func setupUI() {
+        myView.layer.cornerRadius = 8.0
+        cancelButton.layer.cornerRadius = 8.0
+        confirmButton.layer.cornerRadius = 8.0
+        guard let power = heroe?.heroePower else {return}
+        powerSlider.value = Float(Int(power))
+        powerNumberLabel.text = String(power)
+        setupViewEffects()
+    }
+    
+    func setupViewEffects () {
+        let blurEffect = UIBlurEffect(style: .extraLight)
+        let blurredEffectView = UIVisualEffectView(effect: blurEffect)
+        blurredEffectView.frame = view.bounds
+        view.addSubview(blurredEffectView)
+        view.sendSubviewToBack(blurredEffectView)
     }
     
 }

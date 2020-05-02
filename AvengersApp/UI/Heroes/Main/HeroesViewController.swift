@@ -9,38 +9,28 @@
 import UIKit
 
 class HeroesViewController: UIViewController {
+    
+//    MARK: Properties
 
     private let dataProvider = DataProvider()
     private var heroes: [Heroe] = []
     
-    @IBOutlet weak var heroesTableView: UITableView!
+//    MARK: Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupUI()
         self.setData()
         self.updateAllData()
-        
-//        let dataProvider = DataProvider()
-//        let prueba = dataProvider.loadAllBattles()
-//        print ("\(String(describing: prueba[0].fighter1))")
-//        print ("\(String(describing: prueba[1].fighter1))")
-//        print ("\(String(describing: prueba[2].fighter1))")
-//        print ("\(String(describing: prueba[0].fighter1))")
-//        print ("\(String(describing: prueba[0].fighter2))")
-//        print ("\(String(describing: prueba[0].winner))")
-        
-//        let dataProvider = DataProvider()
-//        let prueba = dataProvider.loadHeroeBy(name: "Capitana Marvel")
-//        print("\(String(describing: prueba[0].heroeName))")
-//        print("\(String(describing: prueba))")
-        
-
-        
+        self.setupUI()
         
 }
     
-//  MARK: SetupUI
+//    MARK: IBOUTLET
+
+    @IBOutlet weak var heroesTableView: UITableView!
+
+    
+//  MARK: ConfigureView
     
     func setupUI() {
         self.title = "Heroes"
@@ -49,9 +39,7 @@ class HeroesViewController: UIViewController {
         self.heroesTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         heroesTableView.delegate = self
         heroesTableView.dataSource = self
-        
     }
-    
     
     func setData () {
         if dataProvider.isFirstTime() {
@@ -79,15 +67,14 @@ class HeroesViewController: UIViewController {
     
 }
 
+// MARK: TableView Methods
+
 extension HeroesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 236
     }
     
-    func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        true
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let heroe = heroes[indexPath.row]
@@ -110,6 +97,8 @@ fatalError("Could not create the Heroe cell")
     }
     
 }
+
+//MARK: Delegate methods
 
 extension HeroesViewController: HeroesViewControllerDelegate {
     func didPowerChanged() {

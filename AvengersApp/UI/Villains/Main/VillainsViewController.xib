@@ -10,7 +10,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VillainsViewController" customModule="AvengersApp" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="iN0-l3-epB" id="haI-MB-XhX"/>
-                <outlet property="villainsTableView" destination="vg2-ze-PBj" id="WeZ-Bm-Hz0"/>
+                <outlet property="villainsTableView" destination="vg2-ze-PBj" id="AVG-WV-Fnc"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

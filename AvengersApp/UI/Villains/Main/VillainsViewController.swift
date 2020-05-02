@@ -10,20 +10,40 @@
 import UIKit
 
 class VillainsViewController: UIViewController {
+    
+//    MARK: Properties
 
         private let dataProvider = DataProvider()
         private var villains: [Villain] = []
+    
         
-        @IBOutlet weak var villainsTableView: UITableView!
-        
+//    MARK: Lifecycle methods
+    
         override func viewDidLoad() {
             super.viewDidLoad()
             self.setupUI()
             self.updateAllData()
             
     }
+    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 233/255.0, green: 117/255.0, blue: 100/255.0, alpha: 1.0)
+
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 131/255.0, green: 166/255.0, blue: 233/255.0, alpha: 1.0)
+    }
+    
+//    MARK: IBOUTLET
+    
+    @IBOutlet weak var villainsTableView: UITableView!
         
-    //  MARK: SetupUI
+//  MARK: ConfigureView
         
         func setupUI() {
             self.title = "Villains"
@@ -34,8 +54,6 @@ class VillainsViewController: UIViewController {
             villainsTableView.dataSource = self
             
         }
-        
-    
         
         private func loadData () {
             let dataProvider = DataProvider()
@@ -54,14 +72,12 @@ class VillainsViewController: UIViewController {
         
     }
 
+// MARK: TableView Methods
+
     extension VillainsViewController: UITableViewDelegate, UITableViewDataSource {
         
         func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 236
-        }
-        
-        func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-            true
         }
         
         func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -86,6 +102,8 @@ class VillainsViewController: UIViewController {
         
         
     }
+
+//MARK: Delegate methods
 
     extension VillainsViewController: VillainsViewControllerDelegate {
         func didPowerChanged() {

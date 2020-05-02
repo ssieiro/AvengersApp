@@ -10,11 +10,12 @@ import UIKit
 
 class HeroesTableViewCell: UITableViewCell {
     
+//    MARK: Properties
+    
     private var heroe: Heroe?
     
-    @IBOutlet weak var heroImage: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var starImage: UIImageView!
+    
+//    MARK: Lifecycle methods
     
     override func awakeFromNib() {
         heroImage.layer.cornerRadius = 15
@@ -25,6 +26,15 @@ class HeroesTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         heroe = nil
        }
+    
+//    MARK: IBOUTLET
+    
+    @IBOutlet weak var heroImage: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var starImage: UIImageView!
+    
+    
+//  MARK: ConfigureView
     
     func setHeroe (_ heroe: Heroe) {
         self.heroe = heroe

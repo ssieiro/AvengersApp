@@ -11,13 +11,18 @@ import UIKit
 
 class BattlesViewController: UIViewController {
     
+//    MARK: Properties
+    
     private var battles: [Battle] = []
+    
+//    MARK: Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
 
     }
+
 
 //    MARK: IBOUTLET
     
@@ -31,6 +36,8 @@ class BattlesViewController: UIViewController {
         newBattleVC.delegate = self
         self.navigationController?.pushViewController(newBattleVC, animated: true)
     }
+    
+//  MARK: ConfigureView
     
     func setupUI() {
         self.loadData()
@@ -56,7 +63,7 @@ class BattlesViewController: UIViewController {
     
     private func loadData () {
         let dataProvider = DataProvider()
-        self.battles = dataProvider.loadAllBattles()
+        self.battles = dataProvider.loadAllBattlesSortedById()
     }
     
     private func showData() {
@@ -72,6 +79,8 @@ class BattlesViewController: UIViewController {
 
 }
 
+// MARK: TableView Methods
+
 extension BattlesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -82,7 +91,6 @@ extension BattlesViewController: UITableViewDelegate, UITableViewDataSource {
         false
     }
 
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return battles.count
     }
@@ -90,13 +98,15 @@ extension BattlesViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "BattlesTableViewCell", for: indexPath) as? BattlesTableViewCell {
             let bt = battles[indexPath.row]
-            cell.setBattle(withBattle: bt, number: indexPath.row)
+            cell.setBattle(withBattle: bt)
             return cell
         }
 fatalError("Could not create the Battle cell")
     }
     
 }
+
+//MARK: Delegate methods
 
 extension BattlesViewController: BattlesViewControllerDelegate {
     func didBattleAdded() {

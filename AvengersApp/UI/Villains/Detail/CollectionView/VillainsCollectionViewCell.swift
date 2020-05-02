@@ -10,10 +10,12 @@ import UIKit
  
 class VillainsCollectionViewCell: UICollectionViewCell {
     
+//    MARK: Properties
+    
     private var battle: Battle?
     private var villain: Villain?
     
-    @IBOutlet weak var battleLabel: UILabel!
+//    MARK: Lifecycle methods
     
     override func prepareForReuse() {
         villain = nil
@@ -29,6 +31,12 @@ class VillainsCollectionViewCell: UICollectionViewCell {
         self.layer.masksToBounds = false
     }
     
+//    MARK: IBOutlet
+    
+    @IBOutlet weak var battleLabel: UILabel!
+    
+//    MARK: ConfigureView
+    
     func setBattle(battle: Battle, villain: Villain) {
         if villain.villainName == battle.winner {
             self.backgroundColor = UIColor.init(red: 12/255.0, green: 156/255.0, blue: 43/255.0, alpha: 1.0)
@@ -37,7 +45,7 @@ class VillainsCollectionViewCell: UICollectionViewCell {
             self.backgroundColor = UIColor.init(red: 155/255.0, green: 28/255.0, blue: 42/255.0, alpha: 1.0)
             self.layer.shadowColor = UIColor.init(red: 155/255.0, green: 28/255.0, blue: 42/255.0, alpha: 1.0).cgColor
         }
-        battleLabel.text = "Battle 1"
+        battleLabel.text = "Battle \(battle.id)"
     }
  
 }

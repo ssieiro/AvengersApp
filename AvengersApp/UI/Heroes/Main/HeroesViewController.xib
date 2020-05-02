@@ -9,7 +9,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeroesViewController" customModule="AvengersApp" customModuleProvider="target">
             <connections>
-                <outlet property="heroesTableView" destination="7DH-HO-GG5" id="3Pd-k3-Wzi"/>
+                <outlet property="heroesTableView" destination="7DH-HO-GG5" id="uCD-lc-BdY"/>
                 <outlet property="view" destination="iN0-l3-epB" id="PB2-ga-wAM"/>
             </connections>
         </placeholder>

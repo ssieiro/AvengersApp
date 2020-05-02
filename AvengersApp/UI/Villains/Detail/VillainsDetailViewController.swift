@@ -8,29 +8,43 @@
 
 import UIKit
 
+//MARK: Delegate protocol
+
 protocol VillainsViewControllerDelegate: AnyObject {
     func didPowerChanged()
 }
 
 class VillainsDetailViewController: UIViewController {
     
+//    MARK: Properties
+    
     weak var delegate: VillainsViewControllerDelegate?
     var villain: Villain?
     var battles: [Battle] = []
+    
+//    MARK: Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 233/255.0, green: 117/255.0, blue: 100/255.0, alpha: 1.0)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 131/255.0, green: 166/255.0, blue: 233/255.0, alpha: 1.0)
         delegate?.didPowerChanged()
     }
     
     convenience init(withVillain villain: Villain){
         self.init(nibName: "VillainsDetailViewController", bundle: nil)
         self.villain = villain
-        guard let battles = villain.battles?.allObjects as? [Battle] else {return}
+//        return battles sorted
+        guard let battles = villain.battles?.allObjects.sorted(by: { ($0 as AnyObject).id < ($1 as AnyObject).id } ) as? [Battle] else {return}
         self.battles = battles
         self.title = villain.villainName
     }
@@ -107,14 +121,7 @@ class VillainsDetailViewController: UIViewController {
 
 }
 
-extension VillainsDetailViewController: VillainsPowerDelegate {
-    func didPowerChanged(forVillain villain: Villain) {
-        self.villain = villain
-        self.setupUI()
-        delegate?.didPowerChanged()
-    }
-    
-}
+// MARK: CollectionView Methods
 
 extension VillainsDetailViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
@@ -142,6 +149,17 @@ extension VillainsDetailViewController: UICollectionViewDataSource, UICollection
         
     }
 
+    
+}
+
+//MARK: Delegate methods
+
+extension VillainsDetailViewController: VillainsPowerDelegate {
+    func didPowerChanged(forVillain villain: Villain) {
+        self.villain = villain
+        self.setupUI()
+        delegate?.didPowerChanged()
+    }
     
 }
 

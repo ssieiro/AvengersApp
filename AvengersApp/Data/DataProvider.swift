@@ -9,11 +9,17 @@
 import Foundation
 
 class DataProvider {
+    
+//    MARK: Properties
+    
     private var database: Database? = nil
     private var mUserPreferences: UserDefaultsPreferences? = nil
     private let entityHeroe = "Heroe"
     private let entityVillain = "Villain"
     private let entityBattle = "Battle"
+    
+//    MARK: Lifecicle methods
+    
     init() {
         database = Database()
         mUserPreferences = UserDefaultsPreferences()
@@ -23,6 +29,8 @@ class DataProvider {
         database = nil
     }
 
+// MARK: User Defaults methods
+    
     func isFirstTime() -> Bool {
         guard let answer = mUserPreferences?.isfirstTime() else {return false}
         return answer
@@ -31,6 +39,10 @@ class DataProvider {
     func saveFirstTime() {
         mUserPreferences?.setFirstTime()
     }
+    
+//    MARK: Dataprovider methods
+    
+//    create methods
     
     func createHeroe() -> Heroe? {
         return database?.createDataHeroe() as? Heroe
@@ -43,6 +55,8 @@ class DataProvider {
     func createBattle() -> Battle? {
         return database?.createDataBattle() as? Battle
     }
+    
+//    load methods
     
     func loadAllHeroes() -> [Heroe] {
         guard let data = database?.fecthAllData(entityHeroe) as? [Heroe] else {
@@ -60,37 +74,23 @@ class DataProvider {
         return data
     }
     
-    func loadAllBattles() -> [Battle] {
-        guard let data = database?.fecthAllData(entityBattle) as? [Battle] else {
+    
+    func loadAllBattlesSortedById() -> [Battle] {
+        guard let data = database?.fetchBattlesSortedbyId() as? [Battle] else {
             return []
         }
-        
         return data
     }
     
-    func loadHeroeBattlesBy (fighter: String) -> [Battle] {
-       return database?.fetchDataBy(fighter: fighter, type: entityHeroe) as? [Battle] ?? []
-    }
-    
-    func loadVillainBattlesBy (fighter: String) -> [Battle] {
-        return database?.fetchDataBy(fighter: fighter, type: entityVillain) as? [Battle] ?? []
-    }
-    
-    func loadHeroeBy (name: String) -> [Heroe] {
-        return database?.fetchDataBy(name: name, type: entityHeroe) as? [Heroe] ?? []
 
-    }
+//    func loadVillainBattlesBy (id: Int) -> [Battle] {
+//        return database?.fetchDataBy(fighter: fighter, type: entityVillain) as? [Battle] ?? []
+//    }
     
-    func loadVillainBy (name: String) -> [Villain] {
-        return database?.fetchDataBy(name: name, type: entityVillain) as? [Villain] ?? []
-    }
+//    save methods
     
     func saveChanges() {
         database?.persistAll()
-    }
-    
-    func saveHeroe (_ heroe: Heroe) {
-        database?.persistHeroe(heroe)
     }
         
 }

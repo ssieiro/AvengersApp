@@ -8,17 +8,23 @@
 
 import UIKit
 
+//MARK: Delegate protocol
+
 protocol BattlesViewControllerDelegate: AnyObject {
     func didBattleAdded ()
 }
 
 class NewBattleViewController: UIViewController {
     
+//    MARK: Properties
+    
     weak var delegate: BattlesViewControllerDelegate?
     var battles: [Battle] = []
     let dataProvider = DataProvider()
     var fighter1: Heroe?
     var fighter2: Villain?
+    
+//    MARK: Lifecycle methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +40,26 @@ class NewBattleViewController: UIViewController {
         self.battles = battles
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationItem.title = "New Battle"
+//        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 190/255.0, green: 232/255.0, blue: 107/255.0, alpha: 1.0)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
 
-//    HACER QUE CUANDO SELECCIONAS UN VILLANO EL DELEGADO EJECUTE UNA FUNCION QUE SETEE LA IMAGEN DEL HEROE ELEGIDO Y QUE PONGA HIDDEN EL BOTÓN +
+        // needed to clear the text in the back navigation:
+        self.navigationItem.title = " "
+//        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 131/255.0, green: 166/255.0, blue: 233/255.0, alpha: 1.0)
+    }
+
+
     
 //    MARK: IBOUTLET
+    
     @IBOutlet weak var battleLabel: UILabel!
     @IBOutlet weak var heroeImage: UIImageView!
     @IBOutlet weak var heroeAddButton: UIButton!
@@ -52,18 +74,23 @@ class NewBattleViewController: UIViewController {
     
     @IBAction func addHeroe(_ sender: Any) {
         let chooseFighterVC = ChooseFighter.init(withfighter: 1)
-        let navigationController = UINavigationController(rootViewController: chooseFighterVC)
-    
-        navigationController.modalPresentationStyle = .fullScreen
         chooseFighterVC.delegate = self
-        self.present(navigationController, animated: true, completion: nil)
+        let navChooseVC = UINavigationController(rootViewController: chooseFighterVC)
+
+        navChooseVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 26.0), .foregroundColor: UIColor.white]
+        self.navigationController?.pushViewController(chooseFighterVC, animated: true)
+
     }
     @IBAction func addVillain(_ sender: Any) {
         let chooseFighterVC = ChooseFighter.init(withfighter: 2)
-        let navigationController = UINavigationController(rootViewController: chooseFighterVC)
-        navigationController.modalPresentationStyle = .fullScreen
         chooseFighterVC.delegate = self
-        self.present(navigationController, animated: true, completion: nil)
+        let navChooseVC = UINavigationController(rootViewController: chooseFighterVC)
+
+
+        navChooseVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 26.0), .foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 235/255.0, green: 117/255.0, blue: 100/255.0, alpha: 1.0)
+
+        self.navigationController?.pushViewController(chooseFighterVC, animated: true)
     }
     
     @IBAction func createButton(_ sender: Any) {
@@ -96,6 +123,7 @@ class NewBattleViewController: UIViewController {
     
     
 //    MARK: ConfigureView
+    
     func setupUI() {
         createButton.layer.cornerRadius = 15.0
         createButton.layer.shadowRadius = 2.0
@@ -120,7 +148,7 @@ class NewBattleViewController: UIViewController {
 // MARK: Create Battle methods
     
     func calculateID() -> Int16 {
-        battles = dataProvider.loadAllBattles()
+        battles = dataProvider.loadAllBattlesSortedById()
         let battlesID: [Int16] = battles.map({$0.id})
         guard let maxId = battlesID.max() else {return 1} // si no hay batallas el primer id será 1
         return maxId + 1
@@ -172,8 +200,10 @@ class NewBattleViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-
+    
 }
+
+//MARK: Delegate methods
 
 extension NewBattleViewController: ChooseFighterViewControllerDelegate {
     func setHeroe(_ heroe: Heroe) {
@@ -189,6 +219,5 @@ extension NewBattleViewController: ChooseFighterViewControllerDelegate {
         villainImage.alpha = 1.0
         villainImage.image = UIImage.init(named: fighter2?.villainImage ?? "")
     }
-    
     
 }

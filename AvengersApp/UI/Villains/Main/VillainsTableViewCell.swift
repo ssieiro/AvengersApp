@@ -11,12 +11,17 @@ import UIKit
 
 class VillainsTableViewCell: UITableViewCell {
     
+//    MARK: Properties
+    
     private var villain: Villain?
+    
+//    MARK: IBOUTLET
     
     @IBOutlet weak var villainImage: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var starImage: UIImageView!
     
+//    MARK: Lifecycle methods
     
     override func awakeFromNib() {
         villainImage.layer.cornerRadius = 15
@@ -27,6 +32,8 @@ class VillainsTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         villain = nil
        }
+    
+//  MARK: ConfigureView
     
     func setVillain (_ villain: Villain) {
         self.villain = villain

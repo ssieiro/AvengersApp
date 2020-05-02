@@ -8,12 +8,17 @@
 
 import UIKit
 
+//MARK: Delegate protocol
+
 protocol ChooseFighterViewControllerDelegate {
     func setHeroe(_ heroe: Heroe)
     func setVillain(_ villain: Villain)
 }
 
 class ChooseFighter: UIViewController {
+    
+//    MARK: Properties
+    
     var delegate: ChooseFighterViewControllerDelegate?
     let dataProvider = DataProvider()
     var heroes: [Heroe] = []
@@ -22,45 +27,74 @@ class ChooseFighter: UIViewController {
     var villain: Villain?
     var type: Int? = 0
     
+//    MARK: Lifecycle methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fightersTableView.dataSource = self
         fightersTableView.delegate = self
         fightersTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        fightersTableView.backgroundColor = UIColor.white
+        self.setupUI()
     }
-    
-    @IBOutlet weak var fightersTableView: UITableView!
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(red: 131/255.0, green: 166/255.0, blue: 233/255.0, alpha: 1.0)
+    }
     
     convenience init(withfighter fighter: Int){
         self.init(nibName: "ChooseFighterViewController", bundle: nil)
         if fighter == 1 {
             self.heroes = dataProvider.loadAllHeroes()
             self.type = 1
+            self.title = "Choose Heroe"
         }
         if fighter == 2 {
             self.villains = dataProvider.loadAllVillains()
             self.type = 2
+            self.title = "Choose Villain"
         }
-        
     }
-
     
-}
-
-extension ChooseFighter: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+//    MARK: IBOutlet
+    
+    @IBOutlet weak var fightersTableView: UITableView!
+  
+//    MARK: ConfigureView
+    
+    func setupUI() {
+        fightersTableView.separatorStyle = UITableViewCell.SeparatorStyle.none
         switch type {
         case 1:
-            delegate?.setHeroe(heroes[indexPath.row])
-            self.dismiss(animated: true, completion: nil)
+            fightersTableView.backgroundColor = UIColor.init(red: 193/255.0, green: 210/255.0, blue: 243/255.0, alpha: 1.0)
         case 2:
-            delegate?.setVillain(villains[indexPath.row])
-            self.dismiss(animated: true, completion: nil)
+            fightersTableView.backgroundColor = UIColor.init(red: 222/255.0, green: 201/255.0, blue: 209/255.0, alpha: 1.0)
         default:
             return
         }
     }
+}
+
+// MARK: TableView Methods
+
+extension ChooseFighter: UITableViewDataSource, UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        switch type {
+        case 1:
+            delegate?.setHeroe(heroes[indexPath.row])
+            navigationController?.popViewController(animated: true)
+        case 2:
+            delegate?.setVillain(villains[indexPath.row])
+            navigationController?.popViewController(animated: true)
+        default:
+            return
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch type {
         case 1:
@@ -73,8 +107,9 @@ extension ChooseFighter: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+        return 60
     }
+
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = fightersTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
@@ -82,19 +117,17 @@ extension ChooseFighter: UITableViewDataSource, UITableViewDelegate {
         switch type {
         case 1:
             cell.contentView.backgroundColor = UIColor.init(red: 193/255.0, green: 210/255.0, blue: 243/255.0, alpha: 1.0)
-            cell.textLabel?.text = heroes[indexPath.row].heroeName
-//            let image = UIImage.init(named: heroes[indexPath.row].heroeImage ?? "")
-//            let imageView = UIImageView.init(image: image)
-//            imageView.contentMode = .scaleAspectFill
-//            imageView.frame = CGRect(x: 10.0, y: 10.0, width: 50.0, height: 50.0)
+            cell.textLabel?.text = "\(heroes[indexPath.row].heroeName ?? "") - Power: \(heroes[indexPath.row].heroePower)"
+            let image = UIImage.init(named: heroes[indexPath.row].heroeImage ?? "")
+            cell.imageView?.image = image
+            cell.imageView?.contentMode = .scaleAspectFill
             return cell
         case 2:
-            cell.textLabel?.text = villains[indexPath.row].villainName
+            cell.textLabel?.text = "\(villains[indexPath.row].villainName ?? "") - Power: \(villains[indexPath.row].villainPower)"
             cell.contentView.backgroundColor = UIColor.init(red: 222/255.0, green: 201/255.0, blue: 209/255.0, alpha: 1.0)
-//            let image = UIImage.init(named: villains[indexPath.row].villainImage ?? "")
-//            let imageView = UIImageView.init(image: image)
-//            imageView.sizeThatFits(CGSize(width: 150, height: 150))
-//            imageView.contentMode = .scaleAspectFill
+            let image = UIImage.init(named: villains[indexPath.row].villainImage ?? "")
+            cell.imageView?.image = image
+            cell.imageView?.contentMode = .scaleAspectFill
             return cell
         default:
             fatalError("Could not create the Fighters cell")

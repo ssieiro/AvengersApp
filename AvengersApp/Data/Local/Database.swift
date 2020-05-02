@@ -10,26 +10,13 @@ import UIKit
 import CoreData
 
 class Database {
+    
 //    MARK: Properties
+    
     private let entityHeroe = "Heroe"
-    private let entityHeroeName = "heroeName"
-    private let entityHeroeImage = "heroeImage"
-    private let entityHeroeBio = "heroeBio"
-    private let entityHeroePower = "heroePower"
-    private let entityHeroeBattles = "battles"
-    
     private let entityVillain = "Villain"
-    private let entityVillainName = "villainName"
-    private let entityVillainImage = "villainImage"
-    private let entityVillainBio = "villainBio"
-    private let entityVillainPower = "villainPower"
-    private let entityVillainBattles = "battles"
-    
-    
     private let entityBattle = "Battle"
-    private let entityBattleFighter1 = "fighter1Heroe"
-    private let entityBattleFighter2 = "fighter2Villain"
-    private let entityBattleWinner = "winner"
+    private let entityBattleID = "id"
     
 // MARK: - Managed Object Context
     
@@ -41,11 +28,10 @@ class Database {
         return appDelegate.persistentContainer.viewContext
     }
 
-
 // MARK: Database methods
 
-    
 //    create methods
+    
     func createDataHeroe() -> NSManagedObject? {
         guard let contextMOB = context(),
               let entity = NSEntityDescription.entity(forEntityName: entityHeroe,
@@ -89,46 +75,34 @@ class Database {
         try? contextMOB.save()
     }
     
-    func persistHeroe(_ heroe: Heroe) {
-        guard let contextMOB = context() else {
-            return
-        }
-
-        try? contextMOB.save()
-    }
     
-// Fetch
+// fetch methods
     
     func fecthAllData(_ entity: String) -> [NSManagedObject]? {
         return try? context()?.fetch(NSFetchRequest<NSFetchRequestResult>(entityName: entity)) as? [NSManagedObject]
     }
     
-    func fetchDataBy(fighter: String, type: String) -> [NSManagedObject]? {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityBattle)
-        
-        if type == "Heroe" {
-            fetchRequest.predicate = NSPredicate(format: "fighter1Heroe = \(fighter)")
-        } else {
-           fetchRequest.predicate = NSPredicate(format: "fighter2Villain = \(fighter)")
-        }
-        
-        return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
+    func fetchBattlesSortedbyId() -> [NSManagedObject]?{
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityBattle) 
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: entityBattleID, ascending: true)]
+        return try? context()?.fetch(fetchRequest)
     }
-    
-    func fetchDataBy (name: String, type: String) -> [NSManagedObject]? {
-            if type == "Heroe" {
-                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityHeroe)
-                let heroePredicate = NSPredicate(format: "heroeName = \(name)")
-                fetchRequest.predicate = heroePredicate
-                return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
-            } else {
-                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityVillain)
-                let villainPredicate = NSPredicate(format: "villainName = \(name)")
-                fetchRequest.predicate = villainPredicate
-                return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
-            }
-            
-        }
+        
+
+//    func fetchDataBy (name: String, type: String) -> [NSManagedObject]? {
+//            if type == entityHeroe {
+//                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityHeroe)
+//                let heroePredicate = NSPredicate(format: "heroeName = \(name)")
+//                fetchRequest.predicate = heroePredicate
+//                return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
+//            } else {
+//                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityVillain)
+//                let villainPredicate = NSPredicate(format: "villainName = \(name)")
+//                fetchRequest.predicate = villainPredicate
+//                return try? context()?.fetch(fetchRequest) as? [NSManagedObject]
+//            }
+//            
+//        }
 
 }
 

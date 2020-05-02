@@ -15,7 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
  
+//        Create Scene
+        
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        
+//        Create NavigationController
         
         let heroesVC  = HeroesViewController.init(nibName:  "HeroesViewController", bundle: nil)
         let battlesVC = BattlesViewController.init(nibName: "BattlesViewController", bundle: nil)
@@ -25,6 +29,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navBattlesVC = UINavigationController.init(rootViewController: battlesVC)
         let navVillainsVC = UINavigationController.init(rootViewController: villainsVC)
         
+//        Create NavigationBar
+        
         navHeroesVC.navigationBar.barTintColor = UIColor.init(red: 131/255.0, green: 166/255.0, blue: 233/255.0, alpha: 1.0)
         navHeroesVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 26.0), .foregroundColor: UIColor.white]
         
@@ -33,6 +39,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         navVillainsVC.navigationBar.barTintColor = UIColor.init(red: 131/255.0, green: 166/255.0, blue: 233/255.0, alpha: 1.0)
         navVillainsVC.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 26.0), .foregroundColor: UIColor.white]
 
+//        Create TabBar
         
         heroesVC.tabBarItem  = UITabBarItem.init(title: "Heroes", image: UIImage.init(named: "ic_tab_heroes"), tag: 0)
         battlesVC.tabBarItem   = UITabBarItem.init(title: "Battles", image: UIImage.init(named: "ic_tab_battles"), tag: 1)
@@ -41,11 +48,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers  = [navHeroesVC,navBattlesVC,navVillainsVC]
         
-
         tabBarController.tabBar.barStyle  = .default
         tabBarController.tabBar.isTranslucent  = true
         tabBarController.tabBar.tintColor = UIColor.init(red: 6/255.0, green: 98/255.0, blue: 220/255.0, alpha: 1.0)
 
+//        Present scene
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
